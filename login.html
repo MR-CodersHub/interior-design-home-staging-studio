@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Verdant - Atelier Access Portal. Log in to view your design timeline, mood boards, and exclusive luxury curations.">
+    <title>VERDANT | Atelier Portal Login</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome / Lucide for Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Login Specific Styles */
+        .login-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            padding: 80px 20px;
+        }
+
+        .auth-panel {
+            background-color: var(--clr-bg-dark);
+            border: var(--border-gold-thin);
+            border-radius: var(--border-radius-lg);
+            padding: 50px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: var(--box-shadow-premium);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-medium);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--clr-text-main);
+            margin-bottom: 10px;
+        }
+
+        .auth-header p {
+            color: var(--clr-text-muted);
+            font-size: 0.95rem;
+        }
+
+        .password-input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-toggle-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--clr-text-muted);
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+
+        .password-toggle-btn:hover {
+            color: var(--clr-gold-accent);
+        }
+
+        .auth-footer-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .auth-link {
+            color: var(--clr-text-muted);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .auth-link:hover {
+            color: var(--clr-gold-accent);
+        }
+
+        .auth-form-container {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .auth-form-container.hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-panel {
+                padding: 30px 20px;
+            }
+
+            .auth-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="luxury-theme dark-mode">
+    <script>
+        // Immediately apply saved theme to avoid visual flash
+        const savedTheme = localStorage.getItem("theme-preference");
+        if (savedTheme === "light") {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+        } else if (savedTheme === "dark") {
+            document.body.classList.remove("light-mode");
+            document.body.classList.add("dark-mode");
+        } else {
+            const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (systemPrefersLight) {
+                document.body.classList.remove("dark-mode");
+                document.body.classList.add("light-mode");
+            }
+        }
+    </script>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="navbar-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="logo-main">VERDANT</span>
+                </div>
+            </a>
+
+            <nav class="nav-links-wrapper">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="home-staging.html" class="nav-link">Staging</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <div class="user-account-wrapper">
+                    <button class="account-toggle-btn" id="accountToggleBtn" aria-label="User Account">
+                        <i data-lucide="user"></i>
+                    </button>
+                    <div class="account-dropdown" id="accountDropdown">
+                        <div class="account-dropdown-header">
+                            <span>Atelier Access</span>
+                            <h4>Verdant Portal</h4>
+                        </div>
+                        <ul class="account-dropdown-list">
+                            <li class="account-dropdown-item">
+                                <a href="user-dashboard.html">
+                                    <i data-lucide="layout-dashboard"></i>
+                                    <span>Client Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="admin-dashboard.html">
+                                    <i data-lucide="shield-check"></i>
+                                    <span>Admin Portal</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="login.html">
+                                    <i data-lucide="user-plus"></i>
+                                    <span>Register / Sign Up</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-nav-cta">Book Consultation</a>
+                <button class="menu-toggle-btn" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- AUTHENTICATION SECTION -->
+    <section class="login-section">
+        <div class="auth-panel animate-on-scroll slide-up">
+
+            <!-- LOGIN FORM -->
+            <div id="loginFormContainer" class="auth-form-container">
+                <div class="auth-header">
+                    <h2>Atelier Access</h2>
+                    <p>Enter your credentials to access your portal</p>
+                </div>
+                <form class="luxury-minimal-form"
+                    onsubmit="event.preventDefault(); window.location.href='user-dashboard.html';">
+                    <div class="form-group-minimal" style="margin-bottom: 25px;">
+                        <input type="email" name="email" required placeholder=" " autocomplete="email">
+                        <label>Email Address</label>
+                    </div>
+
+                    <div class="form-group-minimal password-input-group">
+                        <input type="password" id="loginPassword" name="password" required placeholder=" "
+                            autocomplete="current-password">
+                        <label>Password</label>
+                        <button type="button" class="password-toggle-btn"
+                            onclick="togglePassword('loginPassword', 'eyeIconLogin')"
+                            aria-label="Toggle password visibility">
+                            <i data-lucide="eye" id="eyeIconLogin"></i>
+                        </button>
+                    </div>
+
+                    <div class="auth-footer-links">
+                        <label
+                            style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.85rem; color: var(--clr-text-muted);">
+                            <input type="checkbox" style="accent-color: var(--clr-gold-accent);"> Remember me
+                        </label>
+                        <a class="auth-link" onclick="switchAuthView('reset')">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <span>Access Portal</span>
+                    </button>
+
+                    <div style="text-align: center; margin-top: 25px;">
+                        <span style="color: var(--clr-text-muted); font-size: 0.85rem;">Don't have an account? </span>
+                        <a href="contact.html" class="auth-link" style="color: var(--clr-gold-accent);">Request
+                            Invite</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- RESET PASSWORD FORM -->
+            <div id="resetFormContainer" class="auth-form-container hidden">
+                <div class="auth-header">
+                    <h2>Reset Password</h2>
+                    <p>Enter your email to receive recovery instructions</p>
+                </div>
+                <form class="luxury-minimal-form"
+                    onsubmit="event.preventDefault(); alert('Password recovery instructions sent to your email.'); switchAuthView('login');">
+                    <div class="form-group-minimal" style="margin-bottom: 30px;">
+                        <input type="email" name="reset-email" required placeholder=" ">
+                        <label>Registered Email Address</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; justify-content: center; margin-bottom: 20px;">
+                        <span>Send Recovery Link</span>
+                    </button>
+
+                    <div style="text-align: center;">
+                        <a class="auth-link" onclick="switchAuthView('login')"
+                            style="display: inline-flex; align-items: center; gap: 8px;">
+                            <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i> Back to Login
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Column 1: Brand & Social -->
+                <div class="brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                        <div class="brand-text">
+                            <span class="logo-main">VERDANT</span>
+                        </div>
+                    </a>
+                    <p class="brand-bio">
+                        Crafting cinematic residential spaces with deep emerald, charcoal, and warm gold aesthetics. We
+                        sculpt environments that feel intensely bespoke, elevated, and deeply memorable.
+                    </p>
+                    <div class="socials-row">
+                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Pinterest">
+                            <i data-lucide="pin"></i>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Curation Services -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="services.html">Bespoke Interior Design</a></li>
+                        <li><a href="home-staging.html">Elite Home Staging</a></li>
+                        <li><a href="services.html">Art & Accent Curation</a></li>
+                        <li><a href="contact.html">Spatial Consultation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: The Atelier -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">The Atelier</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="about.html">Our Narrative</a></li>
+                        <li><a href="portfolio.html">Selected Works</a></li>
+                        <li><a href="gallery.html">Creative Gallery</a></li>
+                        <li><a href="faq.html">FAQ & Resources</a></li>
+                        <li><a href="contact.html">Client Registry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Registry & Newsletter -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Atelier Access</h4>
+                    <p class="newsletter-desc">Subscribe to receive private collection viewings, editorial staging
+                        notes, and design philosophy updates.</p>
+                    <form class="footer-newsletter-form" id="footerNewsletterForm"
+                        onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <input type="email" placeholder="Your email address..." required aria-label="Email address">
+                        <button type="submit" aria-label="Subscribe to newsletter"><i
+                                data-lucide="arrow-right"></i></button>
+                    </form>
+                    <span class="newsletter-sub-label">By subscribing, you agree to our privacy policy.</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 VERDANT. All rights reserved.</p>
+                </div>
+                <div class="footer-meta-links">
+                    <a href="faq.html">Privacy Policy</a>
+                    <a href="faq.html">Terms of Service</a>
+                    <a href="contact.html">Atelier Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icon Loader and Main JS Engine -->
+    <script>
+        window.addEventListener('load', () => {
+            if (window.lucide) window.lucide.createIcons();
+        });
+
+        // Authentication View Switcher
+        function switchAuthView(view) {
+            const loginForm = document.getElementById('loginFormContainer');
+            const resetForm = document.getElementById('resetFormContainer');
+
+            if (view === 'reset') {
+                loginForm.classList.add('hidden');
+                resetForm.classList.remove('hidden');
+            } else {
+                resetForm.classList.add('hidden');
+                loginForm.classList.remove('hidden');
+            }
+        }
+
+        // Password Visibility Toggle
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+
+            if (input.type === "password") {
+                input.type = "text";
+                icon.setAttribute("data-lucide", "eye-off");
+            } else {
+                input.type = "password";
+                icon.setAttribute("data-lucide", "eye");
+            }
+
+            // Re-render the specific icon
+            if (window.lucide) {
+                lucide.createIcons({
+                    icons: {
+                        "eye": lucide.icons.Eye,
+                        "eyeOff": lucide.icons.EyeOff
+                    },
+                    nameAttr: 'data-lucide'
+                });
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
