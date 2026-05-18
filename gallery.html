@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verdant - Visual index of custom interior design renders. Immersive full-screen lightbox showcases.">
+    <title>VERDANT | Visual Design Gallery</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome / Lucide for Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="luxury-theme dark-mode">
+    <script>
+        // Immediately apply saved theme to avoid visual flash
+        const savedTheme = localStorage.getItem("theme-preference");
+        if (savedTheme === "light") {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+        } else if (savedTheme === "dark") {
+            document.body.classList.remove("light-mode");
+            document.body.classList.add("dark-mode");
+        } else {
+            const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (systemPrefersLight) {
+                document.body.classList.remove("dark-mode");
+                document.body.classList.add("light-mode");
+            }
+        }
+    </script>
+
+    <!-- Dynamic Luxury Preloader Screen -->
+    <div class="page-loader">
+        <div class="loader-logo" style="display: flex; flex-direction: row; align-items: center; gap: 12px; justify-content: center;">
+            <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 42px;">
+            <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
+                <span class="logo-main">VERDANT</span>
+                
+            </div>
+        </div>
+        <div class="loader-bar-wrapper">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+    <!-- HEADER / NAVIGATION -->
+    <header class="navbar-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="logo-main">VERDANT</span>
+                    
+                </div>
+            </a>
+
+            <nav class="nav-links-wrapper">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="home-staging.html" class="nav-link">Staging</a></li>
+                    <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <div class="user-account-wrapper">
+                    <button class="account-toggle-btn" id="accountToggleBtn" aria-label="User Account">
+                        <i data-lucide="user"></i>
+                    </button>
+                    <div class="account-dropdown" id="accountDropdown">
+                        <div class="account-dropdown-header">
+                            <span>Atelier Access</span>
+                            <h4>Verdant Portal</h4>
+                        </div>
+                        <ul class="account-dropdown-list">
+                            <li class="account-dropdown-item">
+                                <a href="user-dashboard.html">
+                                    <i data-lucide="layout-dashboard"></i>
+                                    <span>Client Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="admin-dashboard.html">
+                                    <i data-lucide="shield-check"></i>
+                                    <span>Admin Portal</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="contact.html">
+                                    <i data-lucide="user-plus"></i>
+                                    <span>Register / Sign Up</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-nav-cta">Book Consultation</a>
+                <button class="menu-toggle-btn" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SUBPAGE PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <h1 class="page-title animate-on-scroll slide-up">Visual Design Index</h1>
+            <ul class="breadcrumbs animate-on-scroll slide-up">
+                <li><a href="index.html">Home</a></li>
+                <li class="separator">/</li>
+                <li>Design Gallery</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- GRID GALLERY SECTION -->
+    <section class="gallery-section py-large">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">ATMOSPHERES</span>
+                <h2 class="section-title text-center">Curated Design Snapshots</h2>
+                <p class="section-desc max-width-center text-center">Click any spatial rendering to initiate the fullscreen ambient visual lightbox showcase.</p>
+            </div>
+
+            <!-- Square visual grid -->
+            <div class="projects-masonry-grid gallery-square-grid">
+                
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item animate-on-scroll fade-in" data-src="assets/images/hero_interior.png" style="cursor: pointer; border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 1/1;">
+                    <img src="assets/images/hero_interior.png" alt="Emerald living room" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+                    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.4s; display: flex; align-items: center; justify-content: center; color: var(--gold-accent);" onmouseover="this.style.opacity='1'; this.previousElementSibling.style.transform='scale(1.06)';" onmouseout="this.style.opacity='0'; this.previousElementSibling.style.transform='scale(1)';">
+                        <i data-lucide="maximize-2" style="width: 32px; height: 32px;"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item animate-on-scroll fade-in" data-src="assets/images/about_studio.png" style="cursor: pointer; border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 1/1;">
+                    <img src="assets/images/about_studio.png" alt="Moodboards swatches" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+                    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.4s; display: flex; align-items: center; justify-content: center; color: var(--gold-accent);" onmouseover="this.style.opacity='1'; this.previousElementSibling.style.transform='scale(1.06)';" onmouseout="this.style.opacity='0'; this.previousElementSibling.style.transform='scale(1)';">
+                        <i data-lucide="maximize-2" style="width: 32px; height: 32px;"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item animate-on-scroll fade-in" data-src="assets/images/project_kitchen.png" style="cursor: pointer; border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 1/1;">
+                    <img src="assets/images/project_kitchen.png" alt="Bespoke kitchen island" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+                    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.4s; display: flex; align-items: center; justify-content: center; color: var(--gold-accent);" onmouseover="this.style.opacity='1'; this.previousElementSibling.style.transform='scale(1.06)';" onmouseout="this.style.opacity='0'; this.previousElementSibling.style.transform='scale(1)';">
+                        <i data-lucide="maximize-2" style="width: 32px; height: 32px;"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item animate-on-scroll fade-in" data-src="assets/images/project_bedroom.png" style="cursor: pointer; border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 1/1;">
+                    <img src="assets/images/project_bedroom.png" alt="Tufted bed linen" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+                    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.4s; display: flex; align-items: center; justify-content: center; color: var(--gold-accent);" onmouseover="this.style.opacity='1'; this.previousElementSibling.style.transform='scale(1.06)';" onmouseout="this.style.opacity='0'; this.previousElementSibling.style.transform='scale(1)';">
+                        <i data-lucide="maximize-2" style="width: 32px; height: 32px;"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item animate-on-scroll fade-in" data-src="assets/images/project_bathroom.png" style="cursor: pointer; border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 1/1;">
+                    <img src="assets/images/project_bathroom.png" alt="Gilded black bathtub" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+                    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.4s; display: flex; align-items: center; justify-content: center; color: var(--gold-accent);" onmouseover="this.style.opacity='1'; this.previousElementSibling.style.transform='scale(1.06)';" onmouseout="this.style.opacity='0'; this.previousElementSibling.style.transform='scale(1)';">
+                        <i data-lucide="maximize-2" style="width: 32px; height: 32px;"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item animate-on-scroll fade-in" data-src="assets/images/project_dining.png" style="cursor: pointer; border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 1/1;">
+                    <img src="assets/images/project_dining.png" alt="Black round dining table" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+                    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.4s; display: flex; align-items: center; justify-content: center; color: var(--gold-accent);" onmouseover="this.style.opacity='1'; this.previousElementSibling.style.transform='scale(1.06)';" onmouseout="this.style.opacity='0'; this.previousElementSibling.style.transform='scale(1)';">
+                        <i data-lucide="maximize-2" style="width: 32px; height: 32px;"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE & AFTER TRANSFORMATIONS SECTION -->
+    <section class="before-after-section py-large section-divider" style="background-color: var(--clr-bg-dark);">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">Redesign Vault</span>
+                <h2 class="section-title text-center">Interactive Space Makeovers</h2>
+                <p class="section-desc max-width-center text-center">Drag the sliders below to reveal how our premium curators transform raw spaces into timeless, cinematic atmospheres.</p>
+            </div>
+
+            <!-- Categories Filter -->
+            <div class="portfolio-filter-row animate-on-scroll fade-in" style="justify-content: center; margin-bottom: 50px;">
+                <button class="filter-btn ba-filter-btn active" data-filter="all">All Makeovers</button>
+                <button class="filter-btn ba-filter-btn" data-filter="living-room">Living Rooms</button>
+                <button class="filter-btn ba-filter-btn" data-filter="bedroom">Bedrooms</button>
+                <button class="filter-btn ba-filter-btn" data-filter="kitchen">Kitchens</button>
+                <button class="filter-btn ba-filter-btn" data-filter="home-staging">Home Staging</button>
+            </div>
+
+            <!-- Slider Cards Grid -->
+            <div class="ba-slider-grid">
+                
+                <!-- Card 1 -->
+                <div class="ba-slider-card animate-on-scroll fade-in" data-category="living-room" style="--slider-pos: 50%;">
+                    <div class="ba-slider-container">
+                        <div class="ba-image-before">
+                            <img src="assets/images/about_studio.png" alt="Before Living Room Redesign">
+                            <span class="ba-label before">Before</span>
+                        </div>
+                        <div class="ba-image-after">
+                            <img src="assets/images/hero_interior.png" alt="After Living Room Redesign">
+                            <span class="ba-label after">After Redesign</span>
+                        </div>
+                        <div class="ba-drag-handle">
+                            <div class="ba-handle-line"></div>
+                            <div class="ba-handle-button">
+                                <i data-lucide="chevrons-left-right"></i>
+                            </div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="ba-slider-range" aria-label="Before/After Slider">
+                    </div>
+                    <div class="ba-card-details">
+                        <div class="ba-header-meta">
+                            <span class="ba-project-style">Contemporary Luxury</span>
+                            <span class="ba-progress-label">Finished</span>
+                        </div>
+                        <h3 class="ba-project-title">Bel Air Lounge Transformation</h3>
+                        <p class="ba-project-desc">A moody, texture-rich overhaul incorporating deep emerald hues, fluted stone panels, brass accents, and glowing modular seating.</p>
+                        <div class="ba-project-meta">
+                            <span class="ba-meta-item"><i data-lucide="clock"></i> 4 Weeks</span>
+                            <span class="ba-meta-item"><i data-lucide="coins"></i> $45k - $60k</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="ba-slider-card animate-on-scroll fade-in" data-category="bedroom" style="--slider-pos: 50%;">
+                    <div class="ba-slider-container">
+                        <div class="ba-image-before">
+                            <img src="assets/images/about_studio.png" alt="Before Bedroom Redesign">
+                            <span class="ba-label before">Before</span>
+                        </div>
+                        <div class="ba-image-after">
+                            <img src="assets/images/project_bedroom.png" alt="After Bedroom Redesign">
+                            <span class="ba-label after">After Redesign</span>
+                        </div>
+                        <div class="ba-drag-handle">
+                            <div class="ba-handle-line"></div>
+                            <div class="ba-handle-button">
+                                <i data-lucide="chevrons-left-right"></i>
+                            </div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="ba-slider-range" aria-label="Before/After Slider">
+                    </div>
+                    <div class="ba-card-details">
+                        <div class="ba-header-meta">
+                            <span class="ba-project-style">Minimalist Editorial</span>
+                            <span class="ba-progress-label">Finished</span>
+                        </div>
+                        <h3 class="ba-project-title">Chelsea Master Suite Makeover</h3>
+                        <p class="ba-project-desc">Revitalized with layered biological textiles, soft ambient curves, integrated travertine nightstands, and soft gold custom lighting.</p>
+                        <div class="ba-project-meta">
+                            <span class="ba-meta-item"><i data-lucide="clock"></i> 3 Weeks</span>
+                            <span class="ba-meta-item"><i data-lucide="coins"></i> $30k - $38k</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="ba-slider-card animate-on-scroll fade-in" data-category="kitchen" style="--slider-pos: 50%;">
+                    <div class="ba-slider-container">
+                        <div class="ba-image-before">
+                            <img src="assets/images/about_studio.png" alt="Before Kitchen Redesign">
+                            <span class="ba-label before">Before</span>
+                        </div>
+                        <div class="ba-image-after">
+                            <img src="assets/images/project_kitchen.png" alt="After Kitchen Redesign">
+                            <span class="ba-label after">After Redesign</span>
+                        </div>
+                        <div class="ba-drag-handle">
+                            <div class="ba-handle-line"></div>
+                            <div class="ba-handle-button">
+                                <i data-lucide="chevrons-left-right"></i>
+                            </div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="ba-slider-range" aria-label="Before/After Slider">
+                    </div>
+                    <div class="ba-card-details">
+                        <div class="ba-header-meta">
+                            <span class="ba-project-style">Modern Classic</span>
+                            <span class="ba-progress-label">Finished</span>
+                        </div>
+                        <h3 class="ba-project-title">Malibu Culinary Hub Upgrade</h3>
+                        <p class="ba-project-desc">Reimagined culinary center featuring high-contrast black stone waterfall islands, concealed premium appliances, and walnut cladding.</p>
+                        <div class="ba-project-meta">
+                            <span class="ba-meta-item"><i data-lucide="clock"></i> 5 Weeks</span>
+                            <span class="ba-meta-item"><i data-lucide="coins"></i> $55k - $70k</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="ba-slider-card animate-on-scroll fade-in" data-category="home-staging" style="--slider-pos: 50%;">
+                    <div class="ba-slider-container">
+                        <div class="ba-image-before">
+                            <img src="assets/images/about_studio.png" alt="Before Home Staging Campaign">
+                            <span class="ba-label before">Before</span>
+                        </div>
+                        <div class="ba-image-after">
+                            <img src="assets/images/project_dining.png" alt="After Home Staging Campaign">
+                            <span class="ba-label after">After Redesign</span>
+                        </div>
+                        <div class="ba-drag-handle">
+                            <div class="ba-handle-line"></div>
+                            <div class="ba-handle-button">
+                                <i data-lucide="chevrons-left-right"></i>
+                            </div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="ba-slider-range" aria-label="Before/After Slider">
+                    </div>
+                    <div class="ba-card-details">
+                        <div class="ba-header-meta">
+                            <span class="ba-project-style">Editorial Staging</span>
+                            <span class="ba-progress-label">Staged</span>
+                        </div>
+                        <h3 class="ba-project-title">Metropolitan Staging Campaign</h3>
+                        <p class="ba-project-desc">Optimized spatial layouts and premium furniture layering to maximize property value, resulting in immediate escrow closure.</p>
+                        <div class="ba-project-meta">
+                            <span class="ba-meta-item"><i data-lucide="clock"></i> 10 Days</span>
+                            <span class="ba-meta-item"><i data-lucide="coins"></i> $12k - $18k</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Luxury Project Statistics -->
+            <div class="ba-stats-container animate-on-scroll fade-in">
+                <div class="ba-stat-card">
+                    <span class="ba-stat-number" data-target="240">240+</span>
+                    <span class="ba-stat-title">Transformed Spaces</span>
+                    <p class="ba-stat-desc">Exquisite transformations executed globally.</p>
+                </div>
+                <div class="ba-stat-card">
+                    <span class="ba-stat-number" data-target="15">15 Days</span>
+                    <span class="ba-stat-title">Average Execution</span>
+                    <p class="ba-stat-desc">Swift, high-end spatial redesign execution.</p>
+                </div>
+                <div class="ba-stat-card">
+                    <span class="ba-stat-number" data-target="99">99.4%</span>
+                    <span class="ba-stat-title">Satisfaction Rate</span>
+                    <p class="ba-stat-desc">Client reviews backing our spatial curation.</p>
+                </div>
+                <div class="ba-stat-card">
+                    <span class="ba-stat-number" data-target="12">12M+</span>
+                    <span class="ba-stat-title">Value Unlocked</span>
+                    <p class="ba-stat-desc">In asset value increase for staged homes.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FULLSCREEN LIGHTBOX WIDGET -->
+    <div class="gallery-lightbox">
+        <button class="lightbox-close-btn" aria-label="Close Lightbox modal">
+            <i data-lucide="x"></i>
+        </button>
+        <div class="lightbox-content-wrapper">
+            <img src="" alt="Fullscreen Design Snapshot">
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Column 1: Brand & Social -->
+                <div class="brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                        <div class="brand-text">
+                            <span class="logo-main">VERDANT</span>
+                            
+                        </div>
+                    </a>
+                    <p class="brand-bio">
+                        Crafting cinematic residential spaces with deep emerald, charcoal, and warm gold aesthetics. We sculpt environments that feel intensely bespoke, elevated, and deeply memorable.
+                    </p>
+                    <div class="socials-row">
+                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Pinterest">
+                            <i data-lucide="pin"></i>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Curation Services -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="services.html">Bespoke Interior Design</a></li>
+                        <li><a href="home-staging.html">Elite Home Staging</a></li>
+                        <li><a href="services.html">Art & Accent Curation</a></li>
+                        <li><a href="contact.html">Spatial Consultation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: The Atelier -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">The Atelier</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="about.html">Our Narrative</a></li>
+                        <li><a href="portfolio.html">Selected Works</a></li>
+                        <li><a href="gallery.html">Creative Gallery</a></li>
+                        <li><a href="faq.html">FAQ & Resources</a></li>
+                        <li><a href="contact.html">Client Registry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Registry & Newsletter -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Atelier Access</h4>
+                    <p class="newsletter-desc">Subscribe to receive private collection viewings, editorial staging notes, and design philosophy updates.</p>
+                    <form class="footer-newsletter-form" id="footerNewsletterForm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <input type="email" placeholder="Your email address..." required aria-label="Email address">
+                        <button type="submit" aria-label="Subscribe to newsletter"><i data-lucide="arrow-right"></i></button>
+                    </form>
+                    <span class="newsletter-sub-label">By subscribing, you agree to our privacy policy.</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 VERDANT. All rights reserved.</p>
+                </div>
+                <div class="footer-meta-links">
+                    <a href="faq.html">Privacy Policy</a>
+                    <a href="faq.html">Terms of Service</a>
+                    <a href="contact.html">Atelier Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icon Loader and Main JS Engine -->
+    <script>
+        window.addEventListener('load', () => {
+            if(window.lucide) window.lucide.createIcons();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verdant - Explore our bespoke residential design, premium staging strategies, and custom decor curation services.">
+    <title>VERDANT | Services Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome / Lucide for Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="luxury-theme dark-mode">
+    <script>
+        // Immediately apply saved theme to avoid visual flash
+        const savedTheme = localStorage.getItem("theme-preference");
+        if (savedTheme === "light") {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+        } else if (savedTheme === "dark") {
+            document.body.classList.remove("light-mode");
+            document.body.classList.add("dark-mode");
+        } else {
+            const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (systemPrefersLight) {
+                document.body.classList.remove("dark-mode");
+                document.body.classList.add("light-mode");
+            }
+        }
+    </script>
+
+    <!-- Dynamic Luxury Preloader Screen -->
+    <div class="page-loader">
+        <div class="loader-logo" style="display: flex; flex-direction: row; align-items: center; gap: 12px; justify-content: center;">
+            <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 42px;">
+            <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
+                <span class="logo-main">VERDANT</span>
+                
+            </div>
+        </div>
+        <div class="loader-bar-wrapper">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+    <!-- HEADER / NAVIGATION -->
+    <header class="navbar-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="logo-main">VERDANT</span>
+                    
+                </div>
+            </a>
+
+            <nav class="nav-links-wrapper">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link active">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="home-staging.html" class="nav-link">Staging</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <div class="user-account-wrapper">
+                    <button class="account-toggle-btn" id="accountToggleBtn" aria-label="User Account">
+                        <i data-lucide="user"></i>
+                    </button>
+                    <div class="account-dropdown" id="accountDropdown">
+                        <div class="account-dropdown-header">
+                            <span>Atelier Access</span>
+                            <h4>Verdant Portal</h4>
+                        </div>
+                        <ul class="account-dropdown-list">
+                            <li class="account-dropdown-item">
+                                <a href="user-dashboard.html">
+                                    <i data-lucide="layout-dashboard"></i>
+                                    <span>Client Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="admin-dashboard.html">
+                                    <i data-lucide="shield-check"></i>
+                                    <span>Admin Portal</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="contact.html">
+                                    <i data-lucide="user-plus"></i>
+                                    <span>Register / Sign Up</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-nav-cta">Book Consultation</a>
+                <button class="menu-toggle-btn" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SUBPAGE PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <h1 class="page-title animate-on-scroll slide-up">Bespoke Spatial Competencies</h1>
+            <ul class="breadcrumbs animate-on-scroll slide-up">
+                <li><a href="index.html">Home</a></li>
+                <li class="separator">/</li>
+                <li>Services Portfolio</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES SECTION -->
+    <section class="services-list py-large section-divider">
+        <div class="container">
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card animate-on-scroll slide-up card-delay-1">
+                    <div class="service-icon-bg"><i data-lucide="paint-bucket" class="service-icon"></i></div>
+                    <h3 class="service-title">Bespoke Design</h3>
+                    <p class="service-text">Complete luxury interior design for private residences. We orchestrate materials, bespoke cabinetry layouts, custom millwork, and stone curations.</p>
+                    <ul class="service-bullet-points">
+                        <li>Textural moodboard curations</li>
+                        <li>High-end marble & wood procurement</li>
+                        <li>Bespoke electrical & spotlight layouts</li>
+                        <li>Turnkey project supervision</li>
+                    </ul>
+                    <a href="contact.html" class="service-learn-more"><span>Book Consultation</span> <i data-lucide="arrow-right"></i></a>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card active animate-on-scroll slide-up card-delay-2">
+                    <div class="service-icon-bg"><i data-lucide="armchair" class="service-icon"></i></div>
+                    <h3 class="service-title">Elite Home Staging</h3>
+                    <p class="service-text">Designed specifically to secure high-value property listings. We dress estates with designer leases, modern artwork, and warm highlights to captivate buyers.</p>
+                    <ul class="service-bullet-points">
+                        <li>Bespoke spatial design layouts</li>
+                        <li>Designer furniture rental agreements</li>
+                        <li>Listing staging photoshoot direction</li>
+                        <li>Fast 48-hour styling execution</li>
+                    </ul>
+                    <a href="home-staging.html" class="service-learn-more"><span>View Staging Strategies</span> <i data-lucide="arrow-right"></i></a>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card animate-on-scroll slide-up card-delay-3">
+                    <div class="service-icon-bg"><i data-lucide="gem" class="service-icon"></i></div>
+                    <h3 class="service-title">Accent Curation</h3>
+                    <p class="service-text">For spaces needing final styling layers. We coordinate bespoke art, organic ceramics, rugs, and decorative details to complete your aesthetic.</p>
+                    <ul class="service-bullet-points">
+                        <li>Art acquisition consulting</li>
+                        <li>High-end rugs & fabric layering</li>
+                        <li>Organic vase & accessory styling</li>
+                        <li>Bespoke floral curations</li>
+                    </ul>
+                    <a href="contact.html" class="service-learn-more"><span>Request Audit</span> <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHODOLOGY PROCESS SECTION -->
+    <section class="process-timeline py-large">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">METHODOLOGY</span>
+                <h2 class="section-title text-center">Our Curated Process</h2>
+            </div>
+            
+            <div class="process-timeline-wrapper">
+                <div class="process-timeline-step animate-on-scroll slide-right">
+                    <div class="step-number-container"><span class="step-num">01</span></div>
+                    <div class="step-content-card">
+                        <span class="step-phase">PHASE ONE</span>
+                        <h3 class="step-title">The Private Consultation</h3>
+                        <p class="step-text">Exploring spatial requirements, custom inspirations, color pallets, lighting angles, and listing target scopes.</p>
+                        <span class="step-duration">Timeline: 2 - 3 Days</span>
+                    </div>
+                </div>
+                <div class="process-timeline-step animate-on-scroll slide-left">
+                    <div class="step-number-container"><span class="step-num">02</span></div>
+                    <div class="step-content-card">
+                        <span class="step-phase">PHASE TWO</span>
+                        <h3 class="step-title">Bespoke Curation Concept</h3>
+                        <p class="step-text">Compiling digital moodboards, spatial layouts, textile samples, and designer highlights for your approval.</p>
+                        <span class="step-duration">Timeline: 1 - 2 Weeks</span>
+                    </div>
+                </div>
+                <div class="process-timeline-step animate-on-scroll slide-right">
+                    <div class="step-number-container"><span class="step-num">03</span></div>
+                    <div class="step-content-card">
+                        <span class="step-phase">PHASE THREE</span>
+                        <h3 class="step-title">Procurement & Leasing</h3>
+                        <p class="step-text">Sourcing tactile marble slabs, managing custom logistics, and securing boutique furniture inventory details.</p>
+                        <span class="step-duration">Timeline: 2 - 4 Weeks</span>
+                    </div>
+                </div>
+                <div class="process-timeline-step animate-on-scroll slide-left">
+                    <div class="step-number-container"><span class="step-num">04</span></div>
+                    <div class="step-content-card">
+                        <span class="step-phase">PHASE FOUR</span>
+                        <h3 class="step-title">Styling & Dressing</h3>
+                        <p class="step-text">Dressing visual boundaries, aligning brass lighting angles, and refining custom layers for visual perfection.</p>
+                        <span class="step-duration">Timeline: 2 - 4 Days</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BESPOKE SPATIAL CONCIERGE CALCULATOR -->
+    <section class="concierge-calculator-section py-large section-divider">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">ATELIER CONCIERGE</span>
+                <h2 class="section-title text-center">Bespoke Spatial Investment Estimator</h2>
+                <p class="section-desc max-width-center text-center">Fine-tune your spatial vision below to calculate real-time investment tier estimates, recommended design scopes, and estimated atelier timelines.</p>
+            </div>
+
+            <div class="calculator-card-wrapper animate-on-scroll slide-up">
+                <div class="calculator-grid">
+                    <!-- Input Control Panel -->
+                    <div class="calc-control-panel">
+                        <h3 class="calc-panel-title">Spatial Configurations</h3>
+                        
+                        <!-- Step 1: Service Selection -->
+                        <div class="calc-group">
+                            <label class="calc-label">Atelier Service Tier</label>
+                            <div class="calc-option-grid" id="serviceTypeGrid">
+                                <button class="calc-btn active" data-service="bespoke">
+                                    <i data-lucide="paint-bucket"></i>
+                                    <span>Bespoke Design</span>
+                                </button>
+                                <button class="calc-btn" data-service="staging">
+                                    <i data-lucide="armchair"></i>
+                                    <span>Elite Staging</span>
+                                </button>
+                                <button class="calc-btn" data-service="styling">
+                                    <i data-lucide="gem"></i>
+                                    <span>Accent Styling</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Scale Selection -->
+                        <div class="calc-group">
+                            <label class="calc-label">Estate Scale (Square Feet)</label>
+                            <div class="calc-slider-container">
+                                <input type="range" min="1" max="4" value="2" class="calc-range-slider" id="scaleSlider">
+                                <div class="calc-slider-labels">
+                                    <span>Suite (&lt;1,500)</span>
+                                    <span>Villa (1.5k-3.5k)</span>
+                                    <span>Estate (3.5k-6k)</span>
+                                    <span>Manor (6k+)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Level of Finish -->
+                        <div class="calc-group">
+                            <label class="calc-label">Curation Standard</label>
+                            <div class="calc-option-grid" id="finishGrid">
+                                <button class="calc-btn active" data-finish="premium">
+                                    <span>Premium</span>
+                                </button>
+                                <button class="calc-btn" data-finish="signature">
+                                    <span>Signature</span>
+                                </button>
+                                <button class="calc-btn" data-finish="reserve">
+                                    <span>Reserve</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Output Results Panel -->
+                    <div class="calc-results-panel">
+                        <h3 class="calc-panel-title">Atelier Estimation</h3>
+
+                        <div class="results-box">
+                            <span class="results-tag">ESTIMATED INVESTMENT TIER</span>
+                            <div class="results-price-container">
+                                <span class="results-currency">$</span>
+                                <span class="results-price" id="calcPrice">25,000</span>
+                                <span class="results-plus">+</span>
+                            </div>
+                        </div>
+
+                        <div class="results-meta-grid">
+                            <div class="meta-item">
+                                <span class="meta-item-label">ATELIER TIMELINE</span>
+                                <span class="meta-item-value" id="calcTimeline">4 - 6 Weeks</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-item-label">CURATION TYPE</span>
+                                <span class="meta-item-value" id="calcCurationType">Bespoke Millwork</span>
+                            </div>
+                        </div>
+
+                        <div class="results-assets-box">
+                            <span class="assets-title-label">RECOMMENDED CURATION ELEMENTS</span>
+                            <ul class="results-assets-list" id="calcAssetsList">
+                                <li><i data-lucide="check-circle"></i> Hand-burnished Venetian plaster work</li>
+                                <li><i data-lucide="check-circle"></i> Custom-designed millwork layouts</li>
+                                <li><i data-lucide="check-circle"></i> Calibrated warm spotlight field design</li>
+                            </ul>
+                        </div>
+
+                        <a href="contact.html" class="btn btn-primary btn-calc-action">
+                            <span>Secure Atelier Slot</span>
+                            <i data-lucide="calendar"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Spatial Concierge Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const serviceBtns = document.querySelectorAll('#serviceTypeGrid .calc-btn');
+            const finishBtns = document.querySelectorAll('#finishGrid .calc-btn');
+            const scaleSlider = document.getElementById('scaleSlider');
+            
+            const priceEl = document.getElementById('calcPrice');
+            const timelineEl = document.getElementById('calcTimeline');
+            const curationTypeEl = document.getElementById('calcCurationType');
+            const assetsListEl = document.getElementById('calcAssetsList');
+
+            let activeService = 'bespoke';
+            let activeScale = 2; // Default to Villa (1.5k-3.5k)
+            let activeFinish = 'premium';
+
+            const basePrices = {
+                bespoke: 25000,
+                staging: 15000,
+                styling: 8000
+            };
+
+            const scaleMultipliers = {
+                1: 0.8,  // Suite
+                2: 1.0,  // Villa
+                3: 1.5,  // Estate
+                4: 2.2   // Manor
+            };
+
+            const finishMultipliers = {
+                premium: 1.0,
+                signature: 1.4,
+                reserve: 2.0
+            };
+
+            const assetsConfig = {
+                bespoke: [
+                    "Hand-burnished Venetian plaster layouts",
+                    "Custom architectural millwork plans",
+                    "Calibrated warm spotlight positioning",
+                    "Honed luxury marble quarry procurement",
+                    "Turn-key master carpenter oversight"
+                ],
+                staging: [
+                    "Bespoke modular living room layout curation",
+                    "High-end designer furniture lease agreement",
+                    "Aspiration-rich modern artwork procurement",
+                    "Professional listing photo and video direction",
+                    "Ultra-fast 48-hour styling execution guarantee"
+                ],
+                styling: [
+                    "Rare museum-grade painting and object scouting",
+                    "Hand-woven tactical textile and rug layering",
+                    "Artisanal stoneware and organic ceramics selection",
+                    "Custom sensory candle and floral scent profile",
+                    "Direct designer room styling home overhaul"
+                ]
+            };
+
+            const timelinesConfig = {
+                bespoke: {
+                    1: "3 - 5 Weeks",
+                    2: "4 - 6 Weeks",
+                    3: "6 - 10 Weeks",
+                    4: "10 - 16 Weeks"
+                },
+                staging: {
+                    1: "3 - 5 Days",
+                    2: "4 - 7 Days",
+                    3: "1 - 2 Weeks",
+                    4: "2 - 3 Weeks"
+                },
+                styling: {
+                    1: "5 - 8 Days",
+                    2: "1 - 2 Weeks",
+                    3: "2 - 3 Weeks",
+                    4: "3 - 4 Weeks"
+                }
+            };
+
+            const curationTypesConfig = {
+                bespoke: "Turnkey Architecture",
+                staging: "Editorial Staging",
+                styling: "Accent Art Curation"
+            };
+
+            function calculateEstimate() {
+                // Calculate investment price estimate
+                const base = basePrices[activeService];
+                const multScale = scaleMultipliers[activeScale];
+                const multFinish = finishMultipliers[activeFinish];
+                const total = base * multScale * multFinish;
+                
+                // Format price to standard currency commas
+                priceEl.textContent = total.toLocaleString('en-US');
+
+                // Update timeline
+                timelineEl.textContent = timelinesConfig[activeService][activeScale];
+
+                // Update curation label type
+                curationTypeEl.textContent = curationTypesConfig[activeService];
+
+                // Update recommended curation assets
+                assetsListEl.innerHTML = '';
+                const assets = assetsConfig[activeService];
+                // Display 3 assets for styling, 4 for staging, 5 for bespoke
+                const maxAssets = activeService === 'styling' ? 3 : (activeService === 'staging' ? 4 : 5);
+                
+                for(let i = 0; i < maxAssets; i++) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i data-lucide="check-circle"></i> <span>${assets[i]}</span>`;
+                    assetsListEl.appendChild(li);
+                }
+                
+                // Trigger lucide icon redraw for new list items
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            }
+
+            // Click handlers for service buttons
+            serviceBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    serviceBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeService = btn.getAttribute('data-service');
+                    calculateEstimate();
+                });
+            });
+
+            // Click handlers for finish standard buttons
+            finishBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    finishBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeFinish = btn.getAttribute('data-finish');
+                    calculateEstimate();
+                });
+            });
+
+            // Slider input handler
+            scaleSlider.addEventListener('input', (e) => {
+                activeScale = parseInt(e.target.value);
+                calculateEstimate();
+            });
+
+            // Run initial calculation on load
+            calculateEstimate();
+        });
+    </script>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Column 1: Brand & Social -->
+                <div class="brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                        <div class="brand-text">
+                            <span class="logo-main">VERDANT</span>
+                            
+                        </div>
+                    </a>
+                    <p class="brand-bio">
+                        Crafting cinematic residential spaces with deep emerald, charcoal, and warm gold aesthetics. We sculpt environments that feel intensely bespoke, elevated, and deeply memorable.
+                    </p>
+                    <div class="socials-row">
+                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Pinterest">
+                            <i data-lucide="pin"></i>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Curation Services -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="services.html">Bespoke Interior Design</a></li>
+                        <li><a href="home-staging.html">Elite Home Staging</a></li>
+                        <li><a href="services.html">Art & Accent Curation</a></li>
+                        <li><a href="contact.html">Spatial Consultation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: The Atelier -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">The Atelier</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="about.html">Our Narrative</a></li>
+                        <li><a href="portfolio.html">Selected Works</a></li>
+                        <li><a href="gallery.html">Creative Gallery</a></li>
+                        <li><a href="faq.html">FAQ & Resources</a></li>
+                        <li><a href="contact.html">Client Registry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Registry & Newsletter -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Atelier Access</h4>
+                    <p class="newsletter-desc">Subscribe to receive private collection viewings, editorial staging notes, and design philosophy updates.</p>
+                    <form class="footer-newsletter-form" id="footerNewsletterForm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <input type="email" placeholder="Your email address..." required aria-label="Email address">
+                        <button type="submit" aria-label="Subscribe to newsletter"><i data-lucide="arrow-right"></i></button>
+                    </form>
+                    <span class="newsletter-sub-label">By subscribing, you agree to our privacy policy.</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 VERDANT. All rights reserved.</p>
+                </div>
+                <div class="footer-meta-links">
+                    <a href="faq.html">Privacy Policy</a>
+                    <a href="faq.html">Terms of Service</a>
+                    <a href="contact.html">Atelier Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icon Loader and Main JS Engine -->
+    <script>
+        window.addEventListener('load', () => {
+            if(window.lucide) window.lucide.createIcons();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

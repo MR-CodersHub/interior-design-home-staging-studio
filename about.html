@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verdant - Read our design philosophy and meet our elite curation crew. Quiet luxury and organic materiality.">
+    <title>VERDANT | About The Atelier</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome / Lucide for Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="luxury-theme dark-mode">
+    <script>
+        // Immediately apply saved theme to avoid visual flash
+        const savedTheme = localStorage.getItem("theme-preference");
+        if (savedTheme === "light") {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+        } else if (savedTheme === "dark") {
+            document.body.classList.remove("light-mode");
+            document.body.classList.add("dark-mode");
+        } else {
+            const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (systemPrefersLight) {
+                document.body.classList.remove("dark-mode");
+                document.body.classList.add("light-mode");
+            }
+        }
+    </script>
+
+    <!-- Dynamic Luxury Preloader Screen -->
+    <div class="page-loader">
+        <div class="loader-logo" style="display: flex; flex-direction: row; align-items: center; gap: 12px; justify-content: center;">
+            <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 42px;">
+            <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
+                <span class="logo-main">VERDANT</span>
+                
+            </div>
+        </div>
+        <div class="loader-bar-wrapper">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+    <!-- HEADER / NAVIGATION -->
+    <header class="navbar-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="logo-main">VERDANT</span>
+                    
+                </div>
+            </a>
+
+            <nav class="nav-links-wrapper">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="home-staging.html" class="nav-link">Staging</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <div class="user-account-wrapper">
+                    <button class="account-toggle-btn" id="accountToggleBtn" aria-label="User Account">
+                        <i data-lucide="user"></i>
+                    </button>
+                    <div class="account-dropdown" id="accountDropdown">
+                        <div class="account-dropdown-header">
+                            <span>Atelier Access</span>
+                            <h4>Verdant Portal</h4>
+                        </div>
+                        <ul class="account-dropdown-list">
+                            <li class="account-dropdown-item">
+                                <a href="user-dashboard.html">
+                                    <i data-lucide="layout-dashboard"></i>
+                                    <span>Client Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="admin-dashboard.html">
+                                    <i data-lucide="shield-check"></i>
+                                    <span>Admin Portal</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="contact.html">
+                                    <i data-lucide="user-plus"></i>
+                                    <span>Register / Sign Up</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-nav-cta">Book Consultation</a>
+                <button class="menu-toggle-btn" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SUBPAGE PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <h1 class="page-title animate-on-scroll slide-up">The Atelier Narrative</h1>
+            <ul class="breadcrumbs animate-on-scroll slide-up">
+                <li><a href="index.html">Home</a></li>
+                <li class="separator">/</li>
+                <li>About Studio</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- STUDIO STORY AND PRINCIPLES -->
+    <section class="about-intro py-large section-divider">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visuals animate-on-scroll slide-right">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/about_studio.png" alt="vivienne working on material concepts" class="about-main-img">
+                        <div class="about-floating-card">
+                            <span class="quote-mark">“</span>
+                            <p class="card-quote">Materiality is the language of spatial atmosphere.</p>
+                            <span class="card-author">— Vivienne Vance</span>
+                        </div>
+                        <div class="about-border-outline"></div>
+                    </div>
+                </div>
+                <div class="about-content animate-on-scroll slide-left">
+                    <span class="section-tag">OUR ORIGIN</span>
+                    <h2 class="section-title">
+                        Quiet Luxury. <br>
+                        <span class="highlight-serif">Crafted to Endure.</span>
+                    </h2>
+                    <p class="about-p text-highlight">
+                        Verdant was established to escape the fast-fashion approach to interiors. We create intentional, textural spaces designed for visual weight and emotional resonance.
+                    </p>
+                    <p class="about-p">
+                        Our designs are deeply tactile, utilizing hand-crafted plasters, rich charcoal stone cladding, and custom-dyed emerald linen fabrics. Every spotlight angle is calibrated, balancing dramatic contrast with soft home-warmth.
+                    </p>
+                    <p class="about-p">
+                        In property staging, this sensory elevation drives faster acquisitions. In private designs, it creates an enduring haven.
+                    </p>
+
+                    <!-- Stats counters block -->
+                    <div class="counters-grid" id="countersContainer">
+                        <div class="counter-card">
+                            <div class="counter-number-row">
+                                <span class="counter-number" data-target="12">0</span>
+                                <span class="counter-suffix">+</span>
+                            </div>
+                            <span class="counter-label">Years of Elegance</span>
+                        </div>
+                        <div class="counter-card">
+                            <div class="counter-number-row">
+                                <span class="counter-number" data-target="150">0</span>
+                                <span class="counter-suffix">+</span>
+                            </div>
+                            <span class="counter-label">Estates Crafted</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDITORIAL PHILOSOPHY PILLARS -->
+    <section class="philosophy-pillars-section py-large section-divider">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">OUR SENSORY BLUEPRINT</span>
+                <h2 class="section-title text-center">Three Pillars of Curation</h2>
+                <p class="section-desc max-width-center text-center">Our spatial methodology combines rigorous custom styling with psychological and sensory elements to yield high-value, enduring real estate art.</p>
+            </div>
+            
+            <div class="services-grid philosophy-grid">
+                <!-- Pillar 1 -->
+                <div class="service-card animate-on-scroll slide-up card-delay-1">
+                    <div class="service-icon-bg"><i data-lucide="sun-dim" class="service-icon"></i></div>
+                    <h3 class="service-title">1. Luminance Calibration</h3>
+                    <p class="service-text">We dissect natural daylight pathways and introduce custom-programmed warm spotlight fields (2700K temperature settings) to banish cold, flat reflections and produce a rich, three-dimensional sensory environment.</p>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="service-card active animate-on-scroll slide-up card-delay-2">
+                    <div class="service-icon-bg"><i data-lucide="layers" class="service-icon"></i></div>
+                    <h3 class="service-title">2. Material Authenticity</h3>
+                    <p class="service-text">Our physical palette avoids synthetic veneers. We work exclusively with tactile hand-burnished Venetian lime plasters, raw split-face travertine blocks, honed high-figured marble slabs, and custom-loomed organic linen drapery.</p>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="service-card animate-on-scroll slide-up card-delay-3">
+                    <div class="service-icon-bg"><i data-lucide="trending-up" class="service-icon"></i></div>
+                    <h3 class="service-title">3. Transactional Design</h3>
+                    <p class="service-text">In high-end real estate staging, we balance aesthetic luxury with buyer psychology. By styling properties to tell an aspiration-rich story, we trigger emotional buy-in that significantly reduces cycle times and secures record offers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM MEMBERS SECTION -->
+    <section class="team-section py-large section-divider">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">THE MASTERMINDS</span>
+                <h2 class="section-title text-center">Curators of the Atelier</h2>
+                <p class="section-desc max-width-center text-center">Meet the sensory designers and spatial architects crafting the Verdant vision.</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Member 1 -->
+                <div class="team-card animate-on-scroll slide-up card-delay-1">
+                    <div class="team-img-wrapper">
+                        <img src="assets/images/about_studio.png" alt="Vivienne Vance Founder">
+                        <div class="team-overlay"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Vivienne Vance</h3>
+                        <span class="team-role">Founder & Principal Curation</span>
+                    </div>
+                </div>
+                <!-- Member 2 -->
+                <div class="team-card active animate-on-scroll slide-up card-delay-2">
+                    <div class="team-img-wrapper">
+                        <img src="assets/images/hero_interior.png" alt="Julian Sterling Staging head">
+                        <div class="team-overlay"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Julian Sterling</h3>
+                        <span class="team-role">Partner & Head Staging Officer</span>
+                    </div>
+                </div>
+                <!-- Member 3 -->
+                <div class="team-card animate-on-scroll slide-up card-delay-3">
+                    <div class="team-img-wrapper">
+                        <img src="assets/images/project_kitchen.png" alt="Liam Thorne Master Builder">
+                        <div class="team-overlay"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Liam Thorne</h3>
+                        <span class="team-role">Master Architectural Craftsman</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCOLADES TIMELINE -->
+    <section class="accolades-section py-large">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">DISTINCTIONS</span>
+                <h2 class="section-title text-center">Accolades & Curation Awards</h2>
+            </div>
+            
+            <div class="process-timeline-wrapper">
+                <div class="process-timeline-step animate-on-scroll slide-right">
+                    <div class="step-number-container"><span class="step-num">25</span></div>
+                    <div class="step-content-card">
+                        <span class="step-phase">GOLD MEDALLION</span>
+                        <h3 class="step-title">Residential Designer of the Year</h3>
+                        <p class="step-text">Awarded by the National Curation League for the 'Verdant Sanctuary Bel Air' estate, praising atmospheric color usage.</p>
+                    </div>
+                </div>
+                <div class="process-timeline-step animate-on-scroll slide-left">
+                    <div class="step-number-container"><span class="step-num">23</span></div>
+                    <div class="step-content-card">
+                        <span class="step-phase">ATELIER PRIDE</span>
+                        <h3 class="step-title">Staging Innovation Award</h3>
+                        <p class="step-text">Recognized for staging properties in California, achieving average listing transaction cycles under 8 days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Column 1: Brand & Social -->
+                <div class="brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                        <div class="brand-text">
+                            <span class="logo-main">VERDANT</span>
+                            
+                        </div>
+                    </a>
+                    <p class="brand-bio">
+                        Crafting cinematic residential spaces with deep emerald, charcoal, and warm gold aesthetics. We sculpt environments that feel intensely bespoke, elevated, and deeply memorable.
+                    </p>
+                    <div class="socials-row">
+                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Pinterest">
+                            <i data-lucide="pin"></i>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Curation Services -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="services.html">Bespoke Interior Design</a></li>
+                        <li><a href="home-staging.html">Elite Home Staging</a></li>
+                        <li><a href="services.html">Art & Accent Curation</a></li>
+                        <li><a href="contact.html">Spatial Consultation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: The Atelier -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">The Atelier</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="about.html">Our Narrative</a></li>
+                        <li><a href="portfolio.html">Selected Works</a></li>
+                        <li><a href="gallery.html">Creative Gallery</a></li>
+                        <li><a href="faq.html">FAQ & Resources</a></li>
+                        <li><a href="contact.html">Client Registry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Registry & Newsletter -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Atelier Access</h4>
+                    <p class="newsletter-desc">Subscribe to receive private collection viewings, editorial staging notes, and design philosophy updates.</p>
+                    <form class="footer-newsletter-form" id="footerNewsletterForm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <input type="email" placeholder="Your email address..." required aria-label="Email address">
+                        <button type="submit" aria-label="Subscribe to newsletter"><i data-lucide="arrow-right"></i></button>
+                    </form>
+                    <span class="newsletter-sub-label">By subscribing, you agree to our privacy policy.</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 VERDANT. All rights reserved.</p>
+                </div>
+                <div class="footer-meta-links">
+                    <a href="faq.html">Privacy Policy</a>
+                    <a href="faq.html">Terms of Service</a>
+                    <a href="contact.html">Atelier Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icon Loader and Main JS Engine -->
+    <script>
+        window.addEventListener('load', () => {
+            if(window.lucide) window.lucide.createIcons();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

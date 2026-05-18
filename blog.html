@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verdant - Private design journals and real estate staging insights. Read editorial notes from our principal creators.">
+    <title>VERDANT | Atelier Journals Blog</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome / Lucide for Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="luxury-theme dark-mode">
+    <script>
+        // Immediately apply saved theme to avoid visual flash
+        const savedTheme = localStorage.getItem("theme-preference");
+        if (savedTheme === "light") {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+        } else if (savedTheme === "dark") {
+            document.body.classList.remove("light-mode");
+            document.body.classList.add("dark-mode");
+        } else {
+            const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (systemPrefersLight) {
+                document.body.classList.remove("dark-mode");
+                document.body.classList.add("light-mode");
+            }
+        }
+    </script>
+
+    <!-- Dynamic Luxury Preloader Screen -->
+    <div class="page-loader">
+        <div class="loader-logo" style="display: flex; flex-direction: row; align-items: center; gap: 12px; justify-content: center;">
+            <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 42px;">
+            <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
+                <span class="logo-main">VERDANT</span>
+                
+            </div>
+        </div>
+        <div class="loader-bar-wrapper">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+    <!-- HEADER / NAVIGATION -->
+    <header class="navbar-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="logo-main">VERDANT</span>
+                    
+                </div>
+            </a>
+
+            <nav class="nav-links-wrapper">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="home-staging.html" class="nav-link">Staging</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <div class="user-account-wrapper">
+                    <button class="account-toggle-btn" id="accountToggleBtn" aria-label="User Account">
+                        <i data-lucide="user"></i>
+                    </button>
+                    <div class="account-dropdown" id="accountDropdown">
+                        <div class="account-dropdown-header">
+                            <span>Atelier Access</span>
+                            <h4>Verdant Portal</h4>
+                        </div>
+                        <ul class="account-dropdown-list">
+                            <li class="account-dropdown-item">
+                                <a href="user-dashboard.html">
+                                    <i data-lucide="layout-dashboard"></i>
+                                    <span>Client Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="admin-dashboard.html">
+                                    <i data-lucide="shield-check"></i>
+                                    <span>Admin Portal</span>
+                                </a>
+                            </li>
+                            <li class="account-dropdown-item">
+                                <a href="contact.html">
+                                    <i data-lucide="user-plus"></i>
+                                    <span>Register / Sign Up</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-nav-cta">Book Consultation</a>
+                <button class="menu-toggle-btn" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SUBPAGE PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <h1 class="page-title animate-on-scroll slide-up">Atelier Journals</h1>
+            <ul class="breadcrumbs animate-on-scroll slide-up">
+                <li><a href="index.html">Home</a></li>
+                <li class="separator">/</li>
+                <li>Atelier Journals</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- BLOG ARCHIVE LAYOUT -->
+    <section class="blog-archive-section py-large">
+        <div class="container">
+            <div class="about-grid" style="grid-template-columns: 2fr 1fr; align-items: start; gap: 40px;">
+                
+                <!-- Left: 4 Luxury Articles List -->
+                <div class="blog-posts-column animate-on-scroll slide-right">
+                    
+                    <!-- Article Card 1 -->
+                    <article class="blog-article-card" style="margin-bottom: 50px; background: rgba(10, 24, 20, 0.4); border: 1px solid var(--emerald-darker); border-radius: var(--radius-lg); overflow: hidden;">
+                        <div class="blog-post-visual-wrapper" style="height: 350px; overflow: hidden; position: relative;">
+                            <img src="assets/images/hero_interior.png" alt="Atmospheric living interior" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="stage-stamp good" style="position: absolute; top: 20px; left: 20px;">INTERIOR STYLE</div>
+                        </div>
+                        <div class="blog-post-content" style="padding: 30px;">
+                            <span style="font-size: 11px; color: var(--gold-accent); letter-spacing: 2px;">MAY 18, 2026</span>
+                            <h2 style="font-family: 'Playfair Display', serif; color: var(--white); font-size: 26px; margin: 15px 0;"><a href="blog-details.html" style="color: var(--white); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold-accent)'" onmouseout="this.style.color='var(--white)'">The Cinematic Palette: Styling with Emerald and Brass</a></h2>
+                            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">Delve into the visual weights and balances of rich emerald green walls and organic warm brass lamp spots. Discover how dark interiors create cozy, cinematic sanctuaries...</p>
+                            <a href="blog-details.html" style="color: var(--gold-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 13px;">
+                                <span>Read Journal Entry</span> <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article Card 2 -->
+                    <article class="blog-article-card" style="margin-bottom: 50px; background: rgba(10, 24, 20, 0.4); border: 1px solid var(--emerald-darker); border-radius: var(--radius-lg); overflow: hidden;">
+                        <div class="blog-post-visual-wrapper" style="height: 350px; overflow: hidden; position: relative;">
+                            <img src="assets/images/home_staging.png" alt="Staged residence Malibu" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="stage-stamp good" style="position: absolute; top: 20px; left: 20px;">REAL ESTATE STAGING</div>
+                        </div>
+                        <div class="blog-post-content" style="padding: 30px;">
+                            <span style="font-size: 11px; color: var(--gold-accent); letter-spacing: 2px;">MAY 12, 2026</span>
+                            <h2 style="font-family: 'Playfair Display', serif; color: var(--white); font-size: 26px; margin: 15px 0;"><a href="blog-details.html" style="color: var(--white); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold-accent)'" onmouseout="this.style.color='var(--white)'">Staging to Sell: Seducing High-Net-Worth Buyers</a></h2>
+                            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">Property leasing isn't just about setting a sofa; it's about defining spatial corridors. We explore the design psychology that secure listings transactions cycles under 4 days...</p>
+                            <a href="blog-details.html" style="color: var(--gold-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 13px;">
+                                <span>Read Journal Entry</span> <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Right: Blog Sidebar Widgets -->
+                <aside class="blog-sidebar animate-on-scroll slide-left" style="position: sticky; top: 120px;">
+                    
+                    <!-- Search Widget -->
+                    <div class="studio-hours-card" style="margin-bottom: 30px; padding: 25px;">
+                        <h4 style="font-family: 'Playfair Display', serif; color: var(--gold-accent); margin-bottom: 15px;">Search Journals</h4>
+                        <div style="position: relative; display: flex;">
+                            <input type="text" placeholder="Keywords..." style="width: 100%; padding: 12px 15px; border-radius: var(--radius-sm); border: 1px solid var(--emerald-darker); background: rgba(5,15,12,0.6); color: var(--white); font-size: 13px;">
+                            <button aria-label="Submit search" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--gold-accent); cursor: pointer;"><i data-lucide="search" style="width: 18px; height: 18px;"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Category Selector Widget -->
+                    <div class="studio-hours-card" style="margin-bottom: 30px; padding: 25px;">
+                        <h4 style="font-family: 'Playfair Display', serif; color: var(--gold-accent); margin-bottom: 15px;">Categories</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--emerald-darker); padding: 8px 0; font-size: 13px;">
+                                <a href="#" style="color: var(--text-muted); text-decoration: none;">Interior Design</a>
+                                <span style="color: var(--gold-accent);">(3)</span>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--emerald-darker); padding: 8px 0; font-size: 13px;">
+                                <a href="#" style="color: var(--text-muted); text-decoration: none;">Home Staging</a>
+                                <span style="color: var(--gold-accent);">(2)</span>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--emerald-darker); padding: 8px 0; font-size: 13px;">
+                                <a href="#" style="color: var(--text-muted); text-decoration: none;">Materiality</a>
+                                <span style="color: var(--gold-accent);">(4)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Column 1: Brand & Social -->
+                <div class="brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img">
+                        <div class="brand-text">
+                            <span class="logo-main">VERDANT</span>
+                            
+                        </div>
+                    </a>
+                    <p class="brand-bio">
+                        Crafting cinematic residential spaces with deep emerald, charcoal, and warm gold aesthetics. We sculpt environments that feel intensely bespoke, elevated, and deeply memorable.
+                    </p>
+                    <div class="socials-row">
+                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Pinterest">
+                            <i data-lucide="pin"></i>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Curation Services -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Services</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="services.html">Bespoke Interior Design</a></li>
+                        <li><a href="home-staging.html">Elite Home Staging</a></li>
+                        <li><a href="services.html">Art & Accent Curation</a></li>
+                        <li><a href="contact.html">Spatial Consultation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: The Atelier -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">The Atelier</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="about.html">Our Narrative</a></li>
+                        <li><a href="portfolio.html">Selected Works</a></li>
+                        <li><a href="gallery.html">Creative Gallery</a></li>
+                        <li><a href="faq.html">FAQ & Resources</a></li>
+                        <li><a href="contact.html">Client Registry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Registry & Newsletter -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Atelier Access</h4>
+                    <p class="newsletter-desc">Subscribe to receive private collection viewings, editorial staging notes, and design philosophy updates.</p>
+                    <form class="footer-newsletter-form" id="footerNewsletterForm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <input type="email" placeholder="Your email address..." required aria-label="Email address">
+                        <button type="submit" aria-label="Subscribe to newsletter"><i data-lucide="arrow-right"></i></button>
+                    </form>
+                    <span class="newsletter-sub-label">By subscribing, you agree to our privacy policy.</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom-row">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 VERDANT. All rights reserved.</p>
+                </div>
+                <div class="footer-meta-links">
+                    <a href="faq.html">Privacy Policy</a>
+                    <a href="faq.html">Terms of Service</a>
+                    <a href="contact.html">Atelier Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icon Loader and Main JS Engine -->
+    <script>
+        window.addEventListener('load', () => {
+            if(window.lucide) window.lucide.createIcons();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

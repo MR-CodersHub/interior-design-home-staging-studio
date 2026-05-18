@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verdant Admin Dashboard - Oversee spatial transformations, client registries, staging inventories, blog schedules, and consultation analytics.">
+    <title>VERDANT CONTROL | Admin Portal</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide for Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Dashboard Specific Custom Styles -->
+    <style>
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+            background-color: var(--clr-bg-black);
+            padding-top: 0px; /* Adjusted: No navbar */
+        }
+
+        /* Sidebar Styling */
+        .dashboard-sidebar {
+            background-color: var(--clr-bg-dark);
+            border-right: var(--border-gold-thin);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            position: sticky;
+            top: 0px; /* Adjusted: No navbar */
+            height: 100vh; /* Adjusted: No navbar */
+            z-index: 10;
+        }
+
+        .sidebar-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: var(--border-white-thin);
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--clr-emerald-mid);
+            border: 1px solid var(--clr-gold-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--clr-gold-accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .user-info h4 {
+            font-family: var(--font-serif);
+            color: var(--clr-text-main);
+            font-size: 1rem;
+        }
+
+        .user-info span {
+            font-size: 0.72rem;
+            color: var(--clr-text-muted);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-menu-item a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            border-radius: var(--border-radius-sm);
+            color: var(--clr-text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+
+        .sidebar-menu-item a i {
+            width: 18px;
+            height: 18px;
+            color: var(--clr-gold-accent);
+        }
+
+        .sidebar-menu-item.active a,
+        .sidebar-menu-item a:hover {
+            color: var(--clr-gold-accent);
+            background-color: rgba(197, 168, 128, 0.08);
+            padding-left: 20px;
+        }
+
+        /* Dashboard Content Canvas */
+        .dashboard-content {
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .dashboard-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-text h2 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--clr-text-main);
+        }
+
+        .welcome-text p {
+            color: var(--clr-text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background-color: var(--clr-bg-dark);
+            border: var(--border-gold-thin);
+            border-radius: var(--border-radius-md);
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-medium);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-soft);
+        }
+
+        .stat-meta h4 {
+            font-size: 0.75rem;
+            color: var(--clr-text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .stat-meta .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--clr-text-main);
+            margin-top: 8px;
+        }
+
+        .stat-meta span {
+            font-size: 0.75rem;
+            color: var(--clr-gold-accent);
+            display: block;
+            margin-top: 4px;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--border-radius-sm);
+            background-color: rgba(197, 168, 128, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--clr-gold-accent);
+        }
+
+        /* Asymmetric Layout grid */
+        .dashboard-layout-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* Cards Panels */
+        .dashboard-panel {
+            background-color: var(--clr-bg-dark);
+            border: var(--border-gold-thin);
+            border-radius: var(--border-radius-md);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow-premium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: var(--border-white-thin);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .panel-header h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--clr-text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-header h3 i {
+            color: var(--clr-gold-accent);
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Premium Data Table styling */
+        .admin-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .admin-table th {
+            padding: 15px 20px;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--clr-text-muted);
+            border-bottom: var(--border-white-thin);
+            font-weight: 600;
+            text-align: left; /* Explicitly align headers left */
+        }
+
+        .admin-table td {
+            padding: 18px 20px;
+            font-size: 0.85rem;
+            color: var(--clr-text-main);
+            border-bottom: var(--border-white-thin);
+            vertical-align: middle;
+            text-align: left; /* Explicitly align cell text left */
+        }
+
+        .admin-table tbody tr {
+            transition: var(--transition-fast);
+        }
+
+        .admin-table tbody tr:hover {
+            background-color: rgba(197, 168, 128, 0.03);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .status-badge.active {
+            background-color: rgba(197, 168, 128, 0.08);
+            border: 1px solid var(--clr-gold-accent);
+            color: var(--clr-gold-accent);
+        }
+
+        .status-badge.completed {
+            background-color: rgba(30, 109, 70, 0.08);
+            border: 1px solid var(--clr-emerald-accent);
+            color: var(--clr-emerald-accent);
+        }
+
+        .status-badge.pending {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--clr-text-muted);
+            color: var(--clr-text-muted);
+        }
+
+        /* Action buttons inside table */
+        .btn-table-action {
+            background: none;
+            border: 1px solid var(--clr-emerald-light);
+            color: var(--clr-text-main);
+            width: 32px;
+            height: 32px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+
+        .btn-table-action:hover {
+            border-color: var(--clr-gold-accent);
+            color: var(--clr-gold-accent);
+            background-color: rgba(197, 168, 128, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Photo Approval Widget inside Admin */
+        .photo-approval-card {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(10, 24, 20, 0.3);
+            border: 1px solid var(--clr-emerald-darker);
+            border-radius: var(--border-radius-md);
+            margin-bottom: 20px;
+            transition: var(--transition-medium);
+        }
+
+        .photo-approval-card:hover {
+            border-color: var(--clr-gold-accent);
+            transform: translateY(-2px);
+        }
+
+        .approval-visual {
+            width: 110px;
+            height: 110px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--clr-emerald-mid);
+            flex-shrink: 0;
+        }
+
+        .approval-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .approval-meta {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .approval-meta h4 {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--clr-text-main);
+        }
+
+        .approval-meta p {
+            color: var(--clr-text-muted);
+            font-size: 0.8rem;
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        .approval-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .approval-actions button {
+            padding: 6px 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-table-approve {
+            background-color: var(--clr-gold-accent);
+            color: var(--clr-bg-black);
+            border: 1px solid var(--clr-gold-accent);
+        }
+
+        .btn-table-approve:hover {
+            background-color: var(--clr-gold-bright);
+        }
+
+        .btn-table-reject {
+            background: none;
+            color: var(--clr-text-main);
+            border: 1px solid var(--clr-emerald-light);
+        }
+
+        .btn-table-reject:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Circular Progress styling inside Admin */
+        .circle-progress-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .circular-chart {
+            display: block;
+            margin: 10px auto 20px;
+            max-width: 160px;
+            max-height: 160px;
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: rgba(197, 168, 128, 0.05);
+            stroke-width: 2.8;
+        }
+
+        .circle {
+            fill: none;
+            stroke: var(--clr-gold-accent);
+            stroke-width: 2.8;
+            stroke-linecap: round;
+            animation: progressCircle 1.5s ease-out forwards;
+        }
+
+        @keyframes progressCircle {
+            0% {
+                stroke-dasharray: 0 100;
+            }
+        }
+
+        .circle-percentage {
+            font-family: var(--font-sans);
+            fill: var(--clr-text-main);
+            font-size: 0.55em;
+            text-anchor: middle;
+            font-weight: bold;
+        }
+
+        /* Notification item inside sidebar */
+        .notification-bell-container {
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--clr-gold-accent);
+            box-shadow: 0 0 6px var(--clr-gold-accent);
+        }
+
+        /* Toast notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--clr-bg-dark);
+            border: 1px solid var(--clr-gold-accent);
+            border-radius: var(--border-radius-sm);
+            padding: 18px 25px;
+            box-shadow: var(--box-shadow-premium);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+        }
+
+        .toast-notification.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            color: var(--clr-gold-accent);
+        }
+
+        .toast-msg h4 {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            color: var(--clr-text-main);
+        }
+
+        .toast-msg p {
+            font-size: 0.78rem;
+            color: var(--clr-text-muted);
+            margin-top: 3px;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 992px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            .dashboard-sidebar {
+                display: none;
+            }
+            .dashboard-layout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile topbar + mobile sidebar overlay */
+        .mobile-topbar {
+            display: none; /* Grid/Flex handles it dynamically in media query */
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 0;
+            background: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .mobile-hamburger {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--border-radius-sm);
+            color: var(--clr-text-main);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .mobile-hamburger:hover,
+        .mobile-hamburger:focus {
+            background: rgba(197, 168, 128, 0.1);
+            border-color: var(--clr-gold-accent);
+            color: var(--clr-gold-accent);
+        }
+
+        .mobile-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--clr-text-main);
+            transition: var(--transition-medium);
+        }
+
+        .mobile-brand .brand-logo-icon {
+            color: var(--clr-gold-accent);
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(197, 168, 128, 0.2));
+        }
+
+        .mobile-brand .brand-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .mobile-brand .logo-main {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            line-height: 1;
+            color: var(--clr-text-main);
+        }
+
+        .mobile-brand .logo-sub {
+            font-family: var(--font-sans);
+            font-size: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.45em;
+            color: var(--clr-gold-accent);
+            margin-top: 2px;
+            text-indent: 1px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 900;
+            backdrop-filter: blur(2px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.28s cubic-bezier(0.2,0.9,0.2,1);
+        }
+
+        /* Mobile-only sidebar transition (kept out of desktop layout) */
+        @media (max-width: 992px) {
+            .mobile-topbar {
+                display: grid;
+                grid-template-columns: 44px 1fr 44px;
+                align-items: center;
+            }
+            .dashboard-content {
+                padding: 20px 16px; /* Optimized mobile padding */
+            }
+            .dashboard-header-row { 
+                margin-bottom: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .dashboard-date-widget {
+                align-self: flex-start;
+                text-align: left !important;
+            }
+            .welcome-text h2 {
+                font-size: 1.6rem; /* Clean responsive scale */
+            }
+
+            .dashboard-sidebar {
+                display: flex !important;
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                width: 280px;
+                transform: translateX(-110%);
+                transition: transform 0.32s cubic-bezier(0.2,0.9,0.2,1);
+                z-index: 1000;
+            }
+
+            .dashboard-sidebar.mobile-open { transform: translateX(0); box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+
+            .sidebar-overlay.active { opacity: 1; pointer-events: auto; }
+        }
+
+        /* Desktop header brand (visible on tablet+); keeps brand alignment clean */
+        .header-brand { display: none; text-decoration: none; }
+        .header-brand .logo-main { font-family: var(--font-serif); font-size: 1.1rem; color: var(--clr-text-main); }
+        .header-brand .logo-sub { font-size: 0.75rem; color: var(--clr-text-muted); display: block; }
+        @media (min-width: 768px) {
+            .header-brand { display: flex; align-items: center; gap: 8px; margin-right: 18px; }
+        }
+
+        /* SPA Tab Separation Styles */
+        .dashboard-layout-grid.spa-active {
+            display: block; /* Make it single column when viewing separate tabs */
+        }
+        .dashboard-layout-grid.spa-active .left-canvas,
+        .dashboard-layout-grid.spa-active .right-canvas {
+            display: contents; /* Strip out columns to make panels full-width */
+        }
+        
+        .dashboard-panel {
+            margin-bottom: 30px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .dashboard-panel.hidden {
+            display: none !important;
+        }
+
+        /* General Mobile Overflows & Responsive Polish */
+        @media (max-width: 768px) {
+            /* Stats grid layout styling */
+            .stats-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+                margin-bottom: 25px !important;
+            }
+            .stat-card {
+                padding: 18px 20px !important;
+            }
+            .stat-meta .stat-value {
+                font-size: 1.6rem !important;
+            }
+
+            /* Dashboard panels padding */
+            .dashboard-panel {
+                padding: 20px 15px !important;
+                margin-bottom: 20px !important;
+            }
+            .panel-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding-bottom: 12px;
+                margin-bottom: 20px;
+            }
+            .panel-header h3 {
+                font-size: 1.1rem;
+            }
+
+            /* Concept Curation styling */
+            .concept-visual {
+                height: 180px !important;
+            }
+            .concept-details {
+                padding: 20px 15px !important;
+            }
+            .concept-actions {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+            .concept-actions button {
+                width: 100% !important;
+            }
+
+            /* Drag & drop upload area styling */
+            .upload-drag-area {
+                padding: 25px 15px !important;
+            }
+            .uploaded-images-row {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+            }
+
+            /* Chat panel styling */
+            .designer-chat-wrapper {
+                height: 340px !important;
+            }
+            .chat-body {
+                padding: 15px !important;
+                gap: 12px !important;
+            }
+            .chat-bubble {
+                max-width: 90% !important;
+                padding: 10px 14px !important;
+            }
+            .chat-input-row {
+                padding: 8px !important;
+            }
+            .chat-input-row input {
+                padding: 10px !important;
+                min-width: 0;
+            }
+            .chat-input-row button {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            /* Document item flex container */
+            .document-item {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 12px !important;
+                padding: 15px !important;
+            }
+            .doc-actions {
+                width: 100% !important;
+                display: flex !important;
+                justify-content: flex-end !important;
+            }
+
+            /* Photo approvals widget inside admin */
+            .photo-approval-card {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 15px !important;
+                padding: 15px !important;
+            }
+            .approval-visual {
+                width: 100% !important;
+                height: 160px !important;
+                margin: 0 auto;
+            }
+            .approval-actions {
+                flex-direction: column !important;
+                gap: 8px !important;
+                width: 100% !important;
+            }
+            .approval-actions button {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+
+            /* Table scrollable view */
+            .admin-table-wrapper {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+            }
+
+            .admin-table {
+                width: 100%;
+                min-width: 640px !important; /* Force readable horizontal scroll on mobile */
+                box-sizing: border-box;
+            }
+            .admin-table th,
+            .admin-table td {
+                padding: 12px 15px !important;
+                font-size: 0.8rem !important;
+            }
+            .admin-table tfoot tr td {
+                padding: 12px 15px !important;
+            }
+
+            /* Appointment rows (admin) */
+            .right-canvas div[style*="background-color: rgba(5,15,12,0.3)"] {
+                padding: 15px !important;
+            }
+            .right-canvas div[style*="background-color: rgba(5,15,12,0.3)"] > div[style*="display: flex"] {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 8px !important;
+            }
+            .right-canvas div[style*="background-color: rgba(5,15,12,0.3)"] > div[style*="display: flex"] > span {
+                align-self: flex-start !important;
+            }
+        }
+
+        .dashboard-panel.hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="luxury-theme dark-mode">
+
+    <script>
+        // Immediately apply saved theme to avoid visual flash
+        const savedTheme = localStorage.getItem("theme-preference");
+        if (savedTheme === "light") {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+        } else if (savedTheme === "dark") {
+            document.body.classList.remove("light-mode");
+            document.body.classList.add("dark-mode");
+        } else {
+            const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (systemPrefersLight) {
+                document.body.classList.remove("dark-mode");
+                document.body.classList.add("light-mode");
+            }
+        }
+    </script>
+
+    <!-- Dynamic Luxury Preloader Screen -->
+    <div class="page-loader">
+        <div class="loader-logo" style="display: flex; flex-direction: row; align-items: center; gap: 12px; justify-content: center;">
+            <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 42px;">
+            <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
+                <span class="logo-main">VERDANT</span>
+                
+            </div>
+        </div>
+        <div class="loader-bar-wrapper">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD WORKSPACE -->
+    <div class="dashboard-container">
+        
+        <!-- SIDEBAR -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-user">
+                <div class="user-avatar">VV</div>
+                <div class="user-info">
+                    <h4>Vivienne Vance</h4>
+                    <span>Principal Curation Director</span>
+                </div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li class="sidebar-menu-item active"><a href="#overview"><i data-lucide="bar-chart-2"></i>Overview</a></li>
+                <li class="sidebar-menu-item"><a href="#projects"><i data-lucide="folder-git"></i>Active Projects</a></li>
+                <li class="sidebar-menu-item"><a href="#approvals"><i data-lucide="eye"></i>Uplinks Reviews</a></li>
+                <li class="sidebar-menu-item"><a href="#blog"><i data-lucide="edit-3"></i>Blog & Portfolio</a></li>
+                <li class="sidebar-menu-item"><a href="#appointments"><i data-lucide="calendar"></i>Consultations</a></li>
+                <li class="sidebar-menu-item" style="margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px;">
+                    <a href="index.html" style="color: var(--clr-text-muted);">
+                        <i data-lucide="arrow-left" style="color: var(--clr-text-muted);"></i>
+                        <span>Exit Portal</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN WINDOW -->
+        <main class="dashboard-content">
+            <!-- Mobile topbar (visible on small screens) -->
+            <div class="mobile-topbar">
+                <button class="mobile-hamburger" aria-label="Open menu"><i data-lucide="menu"></i></button>
+                <a href="index.html" class="mobile-brand" aria-label="Verdant Home" style="display: flex; flex-direction: row; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 28px;">
+                    <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
+                        <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); font-size: 14px; letter-spacing: 2px; line-height: 1;">VERDANT</span>
+                        
+                    </div>
+                </a>
+                <div style="width: 44px;"></div> <!-- Mathematical balancing element -->
+            </div>
+            <div class="sidebar-overlay" aria-hidden="true"></div>
+            
+            <!-- HEADER INFO ROW -->
+            <div class="dashboard-header-row animate-on-scroll fade-in">
+                <a href="index.html" class="header-brand" aria-label="Verdant Home" style="display: flex; flex-direction: row; align-items: center; gap: 12px; text-decoration: none;">
+                    <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 36px; transition: transform 0.3s ease;">
+                    <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
+                        <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); font-size: 16px; letter-spacing: 2px; line-height: 1;">VERDANT</span>
+                        
+                    </div>
+                </a>
+                <div class="welcome-text">
+                    <h2>Atelier Management Portal</h2>
+                    <p>System status: Calibrated & Bullish &bull; Online Satellites (2)</p>
+                </div>
+                <div class="dashboard-date-widget" style="text-align: right;">
+                    <span style="font-size: 11px; color: var(--clr-gold-accent); letter-spacing: 2px; text-transform: uppercase;">Notifications Vault</span>
+                    <p style="color: var(--clr-text-main); font-weight: 500; font-size: 13px; margin-top: 3px;">3 Client Updates Awaiting Review</p>
+                </div>
+            </div>
+
+            <!-- STATS ROW -->
+            <div class="stats-grid animate-on-scroll slide-up">
+                <div class="stat-card">
+                    <div class="stat-meta">
+                        <h4>Total Valuation</h4>
+                        <div class="stat-value">$1.2M</div>
+                        <span>Active client volume</span>
+                    </div>
+                    <div class="stat-icon"><i data-lucide="coins"></i></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-meta">
+                        <h4>Consultations Logged</h4>
+                        <div class="stat-value">18</div>
+                        <span>Pending response: 2</span>
+                    </div>
+                    <div class="stat-icon"><i data-lucide="user-check"></i></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-meta">
+                        <h4>Staging Campaigns</h4>
+                        <div class="stat-value">6</div>
+                        <span>Malibu record price holds</span>
+                    </div>
+                    <div class="stat-icon"><i data-lucide="home"></i></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-meta">
+                        <h4>Atelier Subscribers</h4>
+                        <div class="stat-value">840</div>
+                        <span>Campaign newsletter reach</span>
+                    </div>
+                    <div class="stat-icon"><i data-lucide="mail"></i></div>
+                </div>
+            </div>
+
+            <!-- GRID SPLIT -->
+            <div class="dashboard-layout-grid">
+                
+                <!-- LEFT PANEL: TABLE DATABASE & PHOTOS REVIEW -->
+                <div class="left-canvas">
+                    
+                    <!-- CLIENT REGISTRIES DATABASE TABLE -->
+                    <div class="dashboard-panel animate-on-scroll slide-right" id="projects">
+                        <div class="panel-header">
+                            <h3><i data-lucide="users"></i> Client Curation Registry</h3>
+                            <button class="btn btn-outline" style="font-size: 0.72rem; padding: 6px 12px;" onclick="showToast('Registry Logged', 'Refreshed direct database link successfully.')">
+                                <span>Sync Link</span>
+                            </button>
+                        </div>
+                        
+                        <div class="admin-table-wrapper">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Homeowner / Project</th>
+                                        <th>Assigned Director</th>
+                                        <th>Investment Phase</th>
+                                        <th>Milestone State</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div style="font-weight: 600; color: var(--clr-text-main);">Marcus Vance</div>
+                                            <div style="font-size: 0.75rem; color: var(--clr-text-muted);">Bel Air Residence</div>
+                                        </td>
+                                        <td>Vivienne Vance</td>
+                                        <td style="font-weight: bold; color: var(--clr-gold-accent);">$180,000</td>
+                                        <td><span class="status-badge active">Phase 3 Millwork</span></td>
+                                        <td>
+                                            <button class="btn-table-action" title="View Project Folder" onclick="location.href='user-dashboard.html'"><i data-lucide="folder-open"></i></button>
+                                            <button class="btn-table-action" title="Edit Milestones" onclick="showToast('Milestone Logged', 'Marcus Vance set to Phase 4 setup.')"><i data-lucide="edit"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="font-weight: 600; color: var(--clr-text-main);">Lady Beatrice</div>
+                                            <div style="font-size: 0.75rem; color: var(--clr-text-muted);">Chelsea Penthouse, London</div>
+                                        </td>
+                                        <td>Vivienne Vance</td>
+                                        <td style="font-weight: bold; color: var(--clr-gold-accent);">$340,000</td>
+                                        <td><span class="status-badge completed">Completed Setup</span></td>
+                                        <td>
+                                            <button class="btn-table-action" title="View Project Folder" onclick="showToast('Retrieving...', 'Lady Beatrice London folder fetched.')"><i data-lucide="folder-open"></i></button>
+                                            <button class="btn-table-action" title="Edit Milestones" onclick="showToast('Folder Blocked', 'Folder is marked as completed archive.')"><i data-lucide="lock"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="font-weight: 600; color: var(--clr-text-main);">Julian Sterling</div>
+                                            <div style="font-size: 0.75rem; color: var(--clr-text-muted);">Malibu Staging Campaign</div>
+                                        </td>
+                                        <td>Julian Sterling</td>
+                                        <td style="font-weight: bold; color: var(--clr-gold-accent);">$85,000</td>
+                                        <td><span class="status-badge pending">Photoshoot setup</span></td>
+                                        <td>
+                                            <button class="btn-table-action" title="View Project Folder" onclick="showToast('Retrieving...', 'Sterling Malibu staged plans fetched.')"><i data-lucide="folder-open"></i></button>
+                                            <button class="btn-table-action" title="Edit Milestones" onclick="showToast('Milestone Logged', 'Sterling Malibu set to Completed setup.')"><i data-lucide="edit"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ROOM PHOTO UPLINKS APPROVALS -->
+                    <div class="dashboard-panel animate-on-scroll slide-right" id="approvals">
+                        <div class="panel-header">
+                            <h3><i data-lucide="eye"></i> Upload Photo Review Vault</h3>
+                            <span style="font-size: 11px; color: var(--clr-gold-accent); letter-spacing: 1px;">3 REQUESTS AWAITING SIGN-OFF</span>
+                        </div>
+                        
+                        <!-- Request 1 -->
+                        <div class="photo-approval-card">
+                            <div class="approval-visual">
+                                <img src="assets/images/about_studio.png" alt="Client upload">
+                            </div>
+                            <div class="approval-meta">
+                                <div>
+                                    <h4>Marcus Vance &bull; Living Room Reference</h4>
+                                    <p>"Here is the warm backlight lamp details we discussed during on-site frame fitting today."</p>
+                                </div>
+                                <div class="approval-actions">
+                                    <button class="btn-table-approve" onclick="showToast('Reference Approved', 'Photo successfully logged into the Bel Air active mood board.')">
+                                        <i data-lucide="check"></i> Approve & Log
+                                    </button>
+                                    <button class="btn-table-reject" onclick="showToast('Archived Reference', 'Photo logged into reference database, no active mood board update.')">
+                                        <i data-lucide="archive"></i> Archive Only
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Request 2 -->
+                        <div class="photo-approval-card">
+                            <div class="approval-visual">
+                                <img src="assets/images/project_kitchen.png" alt="Client upload">
+                            </div>
+                            <div class="approval-meta">
+                                <div>
+                                    <h4>Alistair Drake &bull; Backsplash Glazed Brick</h4>
+                                    <p>"Sourced these green glazed tiles from an artisan in London. Let me know if these are viable."</p>
+                                </div>
+                                <div class="approval-actions">
+                                    <button class="btn-table-approve" onclick="showToast('Reference Approved', 'Alistair backsplash bricks logged for review.')">
+                                        <i data-lucide="check"></i> Approve & Log
+                                    </button>
+                                    <button class="btn-table-reject" onclick="showToast('Archived Reference', 'Alistair backsplash tiles set to archive folder.')">
+                                        <i data-lucide="archive"></i> Archive Only
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JOURNAL PUBLISHING SCHEDULER -->
+                    <div class="dashboard-panel animate-on-scroll slide-right" id="blog">
+                        <div class="panel-header">
+                            <h3><i data-lucide="edit-3"></i> Journal & Selected Works Scheduler</h3>
+                            <button class="btn btn-outline" style="font-size: 0.72rem; padding: 6px 12px;" onclick="showToast('Journal Updated', 'New draft successfully saved in local cache.')">
+                                <span>Create Entry</span>
+                            </button>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <!-- Article 1 -->
+                            <div style="background-color: rgba(5,15,12,0.3); border: 1px solid var(--clr-emerald-darker); padding: 18px; border-radius: var(--border-radius-sm); margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; gap: 15px; align-items: center;">
+                                    <div style="width: 60px; height: 60px; border-radius: 4px; overflow: hidden; border: 1px solid var(--clr-gold-accent);">
+                                        <img src="assets/images/project_penthouse.png" alt="Penthouse article thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div>
+                                        <h4 style="color: var(--clr-text-main); font-size: 0.9rem; font-weight: 600;">Obsidian Penthouse: Spatial Shadows & Emerald Geometry</h4>
+                                        <p style="font-size: 0.78rem; color: var(--clr-text-muted); margin-top: 3px;">Drafting case study editorial for the front-page luxury spotlight.</p>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span class="status-badge active" style="background: rgba(197, 168, 128, 0.15); color: var(--clr-gold-accent);">DRAFT STATE</span>
+                                    <div style="margin-top: 8px;">
+                                        <a href="#" style="font-size: 0.72rem; color: var(--clr-gold-accent); text-decoration: none; font-weight: 600; margin-right: 12px;" onclick="showToast('Publishing...', 'Editorial uploaded to live server.')">Publish Now</a>
+                                        <a href="#" style="font-size: 0.72rem; color: var(--clr-text-muted); text-decoration: none;">Edit Text</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Article 2 -->
+                            <div style="background-color: rgba(5,15,12,0.3); border: 1px solid var(--clr-emerald-darker); padding: 18px; border-radius: var(--border-radius-sm); margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; gap: 15px; align-items: center;">
+                                    <div style="width: 60px; height: 60px; border-radius: 4px; overflow: hidden; border: 1px solid var(--clr-gold-accent);">
+                                        <img src="assets/images/project_library.png" alt="Library article thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div>
+                                        <h4 style="color: var(--clr-text-main); font-size: 0.9rem; font-weight: 600;">Curation Milestones: The Classic Travertine Cognac Library</h4>
+                                        <p style="font-size: 0.78rem; color: var(--clr-text-muted); margin-top: 3px;">Atmospheric review detailing split-face stone styling dynamics.</p>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <span class="status-badge completed" style="background: rgba(197, 168, 128, 0.08); color: var(--clr-text-muted);">SCHEDULED</span>
+                                    <div style="margin-top: 8px;">
+                                        <span style="font-size: 0.7rem; color: var(--clr-gold-accent); font-weight: 500;">JUNE 04 RELEASE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE PANEL: CIRCULAR PROGRESS & CONSULTATIONS -->
+                <div class="right-canvas">
+                    
+                    <!-- ANALYTICS PROGRESS -->
+                    <div class="dashboard-panel animate-on-scroll slide-left">
+                        <div class="panel-header">
+                            <h3><i data-lucide="pie-chart"></i> Target Curation Rates</h3>
+                        </div>
+                        
+                        <div class="circle-progress-card">
+                            <svg viewBox="0 0 36 36" class="circular-chart">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" stroke-dasharray="78, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <text x="18" y="20.35" class="circle-percentage">78%</text>
+                            </svg>
+                            <h4 style="font-family: var(--font-serif); color: var(--clr-text-main); font-size: 1.1rem; margin-bottom: 5px;">Active Campaign Milestones Met</h4>
+                            <p style="font-size: 0.78rem; color: var(--clr-text-muted);">Sourcing setup and delivery speed remain extremely optimal.</p>
+                        </div>
+                    </div>
+
+                    <!-- RECENT APPOINTMENTS HANDLER -->
+                    <div class="dashboard-panel animate-on-scroll slide-left" id="appointments">
+                        <div class="panel-header">
+                            <h3><i data-lucide="calendar"></i> Atelier Consultations</h3>
+                            <span style="font-size: 0.72rem; color: var(--clr-gold-accent);">NEW: 2</span>
+                        </div>
+                        
+                        <!-- Appointment 1 -->
+                        <div style="background-color: rgba(5,15,12,0.3); border: 1px solid var(--clr-emerald-darker); padding: 15px 20px; border-radius: var(--border-radius-sm); margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                                <div>
+                                    <h4 style="color: var(--clr-text-main); font-size: 0.9rem; font-weight: 600;">Marcus Vance</h4>
+                                    <span style="font-size: 0.72rem; color: var(--clr-gold-accent);">Bespoke Interior Design &bull; Melrose Office</span>
+                                </div>
+                                <span style="font-size: 0.7rem; background-color: var(--clr-emerald-mid); color: var(--clr-gold-accent); padding: 2px 8px; border-radius: 2px; font-weight: 500;">JUNE 18</span>
+                            </div>
+                            <p style="color: var(--clr-text-muted); font-size: 0.78rem; line-height: 1.5;">Registry scheduled for on-site Melrose principal consultation review.</p>
+                            <div style="display: flex; gap: 10px; margin-top: 12px; border-top: 1px solid var(--clr-emerald-darker); padding-top: 10px;">
+                                <a href="#" style="font-size: 0.72rem; color: var(--clr-gold-accent); text-decoration: none; font-weight: 600;" onclick="showToast('Invitation Dispatched', 'Marcus Vance direct email notified.')"><i data-lucide="mail" style="width:12px; height:12px; display:inline-block; vertical-align:middle; margin-right:4px;"></i> Dispatch Invite</a>
+                            </div>
+                        </div>
+
+                        <!-- Appointment 2 -->
+                        <div style="background-color: rgba(5,15,12,0.3); border: 1px solid var(--clr-emerald-darker); padding: 15px 20px; border-radius: var(--border-radius-sm); margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                                <div>
+                                    <h4 style="color: var(--clr-text-main); font-size: 0.9rem; font-weight: 600;">Alistair Drake</h4>
+                                    <span style="font-size: 0.72rem; color: var(--clr-gold-accent);">Accent Curation &bull; Chelsea Satellite</span>
+                                </div>
+                                <span style="font-size: 0.7rem; background-color: var(--clr-emerald-mid); color: var(--clr-gold-accent); padding: 2px 8px; border-radius: 2px; font-weight: 500;">JUNE 22</span>
+                            </div>
+                            <p style="color: var(--clr-text-muted); font-size: 0.78rem; line-height: 1.5;">Discussion centered on sourcing rare English paintings and glazed ceramics.</p>
+                            <div style="display: flex; gap: 10px; margin-top: 12px; border-top: 1px solid var(--clr-emerald-darker); padding-top: 10px;">
+                                <a href="#" style="font-size: 0.72rem; color: var(--clr-gold-accent); text-decoration: none; font-weight: 600;" onclick="showToast('Invitation Dispatched', 'Alistair Drake London schedule synchronized.')"><i data-lucide="mail" style="width:12px; height:12px; display:inline-block; vertical-align:middle; margin-right:4px;"></i> Dispatch Invite</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Floating toast notice widget -->
+    <div class="toast-notification" id="toastBox">
+        <div class="toast-icon"><i data-lucide="bell"></i></div>
+        <div class="toast-msg">
+            <h4 id="toastTitle">Registry Log</h4>
+            <p id="toastText">Update recorded successfully inside studio registry.</p>
+        </div>
+    </div>
+
+    <!-- Footer removed for admin dashboard view -->
+
+    <!-- Lucide Icon Loader and Main JS Engine -->
+    <script>
+        // SPA Admin Portal Router
+        function renderActiveTab() {
+            const hash = window.location.hash || '#overview';
+            const grid = document.querySelector('.dashboard-layout-grid');
+            const stats = document.querySelector('.stats-grid');
+            const welcomeText = document.querySelector('.welcome-text h2');
+            const welcomeSub = document.querySelector('.welcome-text p');
+            
+            // 1. Update active sidebar menu items
+            document.querySelectorAll('.sidebar-menu-item').forEach(item => {
+                const link = item.querySelector('a');
+                if (link && link.getAttribute('href') === hash) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // 2. Hide all panels first
+            const panels = ['#projects', '#approvals', '#blog', '#appointments'];
+            panels.forEach(id => {
+                const el = document.querySelector(id);
+                if (el) el.classList.add('hidden');
+            });
+            
+            // Hide progress widget (pie chart) on other views
+            const progressWidget = document.querySelector('.right-canvas .dashboard-panel:not([id])');
+            if (progressWidget) progressWidget.classList.add('hidden');
+            
+            // 3. Render views accordingly
+            if (hash === '#overview') {
+                if (grid) grid.classList.remove('spa-active');
+                if (stats) stats.style.display = 'grid';
+                if (welcomeText) welcomeText.textContent = "Atelier Management Portal";
+                if (welcomeSub) welcomeSub.textContent = "System status: Calibrated & Bullish • Online Satellites (2)";
+                
+                // For overview: show Active Projects registry and target progress indicators
+                const projectsEl = document.querySelector('#projects');
+                if (projectsEl) projectsEl.classList.remove('hidden');
+                if (progressWidget) progressWidget.classList.remove('hidden');
+            } else {
+                if (grid) grid.classList.add('spa-active');
+                if (stats) stats.style.display = 'none';
+                
+                if (hash === '#projects') {
+                    if (welcomeText) welcomeText.textContent = "Client Curation Registry";
+                    if (welcomeSub) welcomeSub.textContent = "Active client volume, contract phases, and investment directories.";
+                    const projectsEl = document.querySelector('#projects');
+                    if (projectsEl) projectsEl.classList.remove('hidden');
+                } else if (hash === '#approvals') {
+                    if (welcomeText) welcomeText.textContent = "Upload Review Vault";
+                    if (welcomeSub) welcomeSub.textContent = "Approve or archive room reference uploads dispatched by active clients.";
+                    const approvalsEl = document.querySelector('#approvals');
+                    if (approvalsEl) approvalsEl.classList.remove('hidden');
+                } else if (hash === '#blog') {
+                    if (welcomeText) welcomeText.textContent = "Journal & Portfolio Scheduler";
+                    if (welcomeSub) welcomeSub.textContent = "Atmospheric reviews and draft spotlight scheduling.";
+                    const blogEl = document.querySelector('#blog');
+                    if (blogEl) blogEl.classList.remove('hidden');
+                } else if (hash === '#appointments') {
+                    if (welcomeText) welcomeText.textContent = "Atelier Consultations Log";
+                    if (welcomeSub) welcomeSub.textContent = "Direct schedule logs for Melrose office and satellite sessions.";
+                    const appointmentsEl = document.querySelector('#appointments');
+                    if (appointmentsEl) appointmentsEl.classList.remove('hidden');
+                }
+            }
+        }
+        
+        window.addEventListener('hashchange', renderActiveTab);
+        window.addEventListener('load', () => {
+            renderActiveTab();
+            if(window.lucide) window.lucide.createIcons();
+        });
+
+        // Toast controller
+        function showToast(title, msg) {
+            const toast = document.getElementById("toastBox");
+            const tTitle = document.getElementById("toastTitle");
+            const tText = document.getElementById("toastText");
+            
+            tTitle.textContent = title;
+            tText.textContent = msg;
+            
+            toast.classList.add("active");
+            
+            setTimeout(() => {
+                toast.classList.remove("active");
+            }, 3500);
+        }
+        
+        // Mobile sidebar toggle (admin)
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.mobile-hamburger');
+            const sidebar = document.querySelector('.dashboard-sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+
+            function openSidebar() {
+                if (!sidebar) return;
+                sidebar.classList.add('mobile-open');
+                if (overlay) overlay.classList.add('active');
+                if (overlay) overlay.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                if (window.lucide && lucide.createIcons) lucide.createIcons();
+            }
+
+            function closeSidebar() {
+                if (!sidebar) return;
+                sidebar.classList.remove('mobile-open');
+                if (overlay) overlay.classList.remove('active');
+                if (overlay) overlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            hamburger?.addEventListener('click', openSidebar);
+            overlay?.addEventListener('click', closeSidebar);
+
+            // Close the sidebar when any sidebar link is clicked (mobile only)
+            document.querySelectorAll('.dashboard-sidebar .sidebar-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) closeSidebar();
+                });
+            });
+
+            // Close the sidebar if the viewport becomes desktop-sized
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) closeSidebar();
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
