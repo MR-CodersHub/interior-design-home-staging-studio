@@ -433,25 +433,24 @@
         // Password Visibility Toggle
         function togglePassword(inputId, iconId) {
             const input = document.getElementById(inputId);
-            const icon = document.getElementById(iconId);
+            const currentIcon = document.getElementById(iconId);
+
+            const newIcon = document.createElement('i');
+            newIcon.id = iconId;
 
             if (input.type === "password") {
                 input.type = "text";
-                icon.setAttribute("data-lucide", "eye-off");
+                newIcon.setAttribute("data-lucide", "eye-off");
             } else {
                 input.type = "password";
-                icon.setAttribute("data-lucide", "eye");
+                newIcon.setAttribute("data-lucide", "eye");
             }
 
-            // Re-render the specific icon
+            currentIcon.replaceWith(newIcon);
+
+            // Re-render icons
             if (window.lucide) {
-                lucide.createIcons({
-                    icons: {
-                        "eye": lucide.icons.Eye,
-                        "eyeOff": lucide.icons.EyeOff
-                    },
-                    nameAttr: 'data-lucide'
-                });
+                lucide.createIcons();
             }
         }
     </script>
