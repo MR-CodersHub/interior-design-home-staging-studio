@@ -262,6 +262,48 @@ body.light-mode .success-summary-card {
     background-color: rgba(0, 0, 0, 0.02);
 }
 
+/* Project Modal Light Mode Adjustments */
+body.light-mode .modal-backdrop {
+    background-color: rgba(253, 252, 249, 0.85);
+}
+
+body.light-mode .modal-card-container {
+    background-color: var(--clr-bg-black);
+    border-color: rgba(139, 115, 85, 0.25);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .modal-close-btn {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: var(--clr-text-main);
+}
+
+body.light-mode .modal-close-btn:hover {
+    border-color: var(--clr-gold-accent);
+    color: var(--clr-gold-accent);
+}
+
+body.light-mode .modal-text-side {
+    border-left-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .modal-divider {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .modal-specifications {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 900px) {
+    body.light-mode .modal-text-side {
+        border-left: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+}
+
 /* Dashboard Light Mode Adjustments */
 body.light-mode .sidebar-user {
     border-bottom-color: rgba(0, 0, 0, 0.08);
