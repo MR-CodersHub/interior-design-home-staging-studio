@@ -621,17 +621,58 @@
         @media (max-width: 992px) {
             .mobile-topbar {
                 display: grid;
-                grid-template-columns: 44px 1fr 44px;
+                grid-template-columns: 44px minmax(0, 1fr) auto;
                 align-items: center;
+                gap: 8px;
+                padding: 10px 0 14px;
+                margin-bottom: 14px;
+            }
+            .mobile-brand {
+                justify-content: flex-start;
+                min-width: 0;
+            }
+            .mobile-brand .brand-logo-img {
+                height: 24px;
+                width: auto;
+                flex-shrink: 0;
+            }
+            .mobile-brand .logo-main {
+                font-size: 0.92rem;
+                letter-spacing: 0.18em;
+                white-space: nowrap;
+            }
+            .mobile-header-controls {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 6px;
+                margin-left: auto;
+                flex-wrap: nowrap;
+            }
+            .mobile-header-controls .dash-ctrl-btn {
+                width: 36px;
+                height: 36px;
+                border-radius: 999px;
+            }
+            .mobile-header-controls .dash-ctrl-btn svg,
+            .mobile-header-controls .dash-ctrl-btn i {
+                width: 15px;
+                height: 15px;
+            }
+            .mobile-header-controls .dash-header-divider {
+                height: 22px;
+                margin: 0 2px;
+            }
+            .mobile-header-controls .dash-ctrl-avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 0.72rem;
             }
             .dashboard-content {
                 padding: 20px 16px; /* Optimized mobile padding */
             }
-            .dashboard-header-row { 
-                margin-bottom: 20px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
+            .dashboard-header-row {
+                display: none;
             }
             .dashboard-date-widget {
                 align-self: flex-start;
@@ -664,6 +705,105 @@
         .header-brand .logo-sub { font-size: 0.75rem; color: var(--clr-text-muted); display: block; }
         @media (min-width: 768px) {
             .header-brand { display: flex; align-items: center; gap: 8px; margin-right: 18px; }
+        }
+
+        /* Header Controls Group – Theme, RTL, Profile */
+        .dash-header-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .dash-ctrl-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(197, 168, 128, 0.06);
+            border: 1px solid rgba(197, 168, 128, 0.18);
+            color: var(--clr-gold-accent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            position: relative;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .dash-ctrl-btn svg,
+        .dash-ctrl-btn i {
+            width: 16px;
+            height: 16px;
+            pointer-events: none;
+        }
+
+        .dash-ctrl-btn:hover,
+        .dash-ctrl-btn:focus {
+            background: rgba(197, 168, 128, 0.14);
+            border-color: var(--clr-gold-accent);
+            box-shadow: 0 0 12px rgba(197, 168, 128, 0.15);
+            outline: none;
+        }
+
+        .dash-ctrl-btn .sun-icon { display: none; }
+        .dash-ctrl-btn .moon-icon { display: block; }
+        body.light-mode .dash-ctrl-btn .sun-icon { display: block; }
+        body.light-mode .dash-ctrl-btn .moon-icon { display: none; }
+
+        body.light-mode .dash-ctrl-btn {
+            background: rgba(139, 115, 85, 0.06);
+            border-color: rgba(139, 115, 85, 0.2);
+            color: var(--clr-gold-accent);
+        }
+        body.light-mode .dash-ctrl-btn:hover {
+            background: rgba(139, 115, 85, 0.12);
+        }
+
+        .dash-header-divider {
+            width: 1px;
+            height: 28px;
+            background: rgba(197, 168, 128, 0.18);
+            margin: 0 6px;
+            flex-shrink: 0;
+        }
+        body.light-mode .dash-header-divider {
+            background: rgba(139, 115, 85, 0.18);
+        }
+
+        .dash-ctrl-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--clr-emerald-mid);
+            border: 1px solid var(--clr-gold-accent);
+            color: var(--clr-gold-accent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            cursor: default;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(197, 168, 128, 0.12);
+        }
+
+        .sidebar-menu-item.logout-item a {
+            color: var(--clr-text-muted) !important;
+        }
+        .sidebar-menu-item.logout-item a i {
+            color: var(--clr-text-muted) !important;
+        }
+        .sidebar-menu-item.logout-item a:hover {
+            color: #e06060 !important;
+            background-color: rgba(220, 80, 80, 0.06) !important;
+        }
+        .sidebar-menu-item.logout-item a:hover i {
+            color: #e06060 !important;
         }
 
         /* SPA Tab Separation Styles */
@@ -893,10 +1033,10 @@
                 <li class="sidebar-menu-item"><a href="#approvals"><i data-lucide="eye"></i>Uplinks Reviews</a></li>
                 <li class="sidebar-menu-item"><a href="#blog"><i data-lucide="edit-3"></i>Blog & Portfolio</a></li>
                 <li class="sidebar-menu-item"><a href="#appointments"><i data-lucide="calendar"></i>Consultations</a></li>
-                <li class="sidebar-menu-item" style="margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px;">
-                    <a href="index.html" style="color: var(--clr-text-muted);">
-                        <i data-lucide="arrow-left" style="color: var(--clr-text-muted);"></i>
-                        <span>Exit Portal</span>
+                <li class="sidebar-menu-item logout-item" style="margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px;">
+                    <a href="login.html" aria-label="Logout">
+                        <i data-lucide="log-out"></i>
+                        <span>Logout</span>
                     </a>
                 </li>
             </ul>
@@ -911,10 +1051,22 @@
                     <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 28px;">
                     <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
                         <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); font-size: 14px; letter-spacing: 2px; line-height: 1;">VERDANT</span>
-                        
                     </div>
                 </a>
-                <div style="width: 44px;"></div> <!-- Mathematical balancing element -->
+                <!-- Mobile header controls -->
+                <div class="dash-header-controls mobile-header-controls">
+                    <button class="dash-ctrl-btn mobile-theme-toggle" id="dashThemeToggleBtnMobile" aria-label="Toggle Theme" title="Toggle Theme">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
+                    </button>
+                    <button class="dash-ctrl-btn mobile-rtl-toggle" id="dashRtlToggleBtnMobile" aria-label="Toggle Language / RTL" title="Language / RTL">
+                        <i data-lucide="globe"></i>
+                    </button>
+                    <div class="dash-header-divider" aria-hidden="true"></div>
+                    <button class="dash-ctrl-btn mobile-profile-btn" aria-label="Open profile menu" title="Profile menu">
+                        <span class="dash-ctrl-avatar">VV</span>
+                    </button>
+                </div>
             </div>
             <div class="sidebar-overlay" aria-hidden="true"></div>
             
@@ -924,16 +1076,23 @@
                     <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 36px; transition: transform 0.3s ease;">
                     <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
                         <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); font-size: 16px; letter-spacing: 2px; line-height: 1;">VERDANT</span>
-                        
                     </div>
                 </a>
                 <div class="welcome-text">
-                    <h2>Atelier Management Portal</h2>
+                    <h2>Studio Management Portal</h2>
                     <p>System status: Calibrated & Bullish &bull; Online Satellites (2)</p>
                 </div>
-                <div class="dashboard-date-widget" style="text-align: right;">
-                    <span style="font-size: 11px; color: var(--clr-gold-accent); letter-spacing: 2px; text-transform: uppercase;">Notifications Vault</span>
-                    <p style="color: var(--clr-text-main); font-weight: 500; font-size: 13px; margin-top: 3px;">3 Client Updates Awaiting Review</p>
+                <!-- Header Controls: Theme · RTL · Profile (grouped, top-right) -->
+                <div class="dash-header-controls">
+                    <button class="dash-ctrl-btn" id="dashThemeToggleBtn" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
+                    </button>
+                    <button class="dash-ctrl-btn" id="dashRtlToggleBtn" aria-label="Toggle Layout Direction" title="Toggle RTL">
+                        <i data-lucide="languages"></i>
+                    </button>
+                    <div class="dash-header-divider" aria-hidden="true"></div>
+                    <div class="dash-ctrl-avatar" title="Vivienne Vance – Admin Portal" aria-label="Logged in as Vivienne Vance">VV</div>
                 </div>
             </div>
 
@@ -965,7 +1124,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-meta">
-                        <h4>Atelier Subscribers</h4>
+                        <h4>Portal Subscribers</h4>
                         <div class="stat-value">840</div>
                         <span>Campaign newsletter reach</span>
                     </div>
@@ -1054,7 +1213,7 @@
                         <!-- Request 1 -->
                         <div class="photo-approval-card">
                             <div class="approval-visual">
-                                <img src="assets/images/about_studio.png" alt="Client upload">
+                                <img src="assets/images/about_concept.png" alt="Client upload">
                             </div>
                             <div class="approval-meta">
                                 <div>
@@ -1169,7 +1328,7 @@
                     <!-- RECENT APPOINTMENTS HANDLER -->
                     <div class="dashboard-panel animate-on-scroll slide-left" id="appointments">
                         <div class="panel-header">
-                            <h3><i data-lucide="calendar"></i> Atelier Consultations</h3>
+                            <h3><i data-lucide="calendar"></i> Studio Consultations</h3>
                             <span style="font-size: 0.72rem; color: var(--clr-gold-accent);">NEW: 2</span>
                         </div>
                         
@@ -1256,7 +1415,7 @@
             if (hash === '#overview') {
                 if (grid) grid.classList.remove('spa-active');
                 if (stats) stats.style.display = 'grid';
-                if (welcomeText) welcomeText.textContent = "Atelier Management Portal";
+                if (welcomeText) welcomeText.textContent = "Studio Management Portal";
                 if (welcomeSub) welcomeSub.textContent = "System status: Calibrated & Bullish • Online Satellites (2)";
                 
                 // For overview: show Active Projects registry and target progress indicators
@@ -1283,7 +1442,7 @@
                     const blogEl = document.querySelector('#blog');
                     if (blogEl) blogEl.classList.remove('hidden');
                 } else if (hash === '#appointments') {
-                    if (welcomeText) welcomeText.textContent = "Atelier Consultations Log";
+                    if (welcomeText) welcomeText.textContent = "Studio Consultations Log";
                     if (welcomeSub) welcomeSub.textContent = "Direct schedule logs for Melrose office and satellite sessions.";
                     const appointmentsEl = document.querySelector('#appointments');
                     if (appointmentsEl) appointmentsEl.classList.remove('hidden');
@@ -1351,6 +1510,54 @@
                 if (window.innerWidth > 992) closeSidebar();
             });
         });
+    </script>
+    <!-- Dashboard Header Controls: Theme & RTL wiring -->
+    <script>
+        (function() {
+            function applyThemePreference(newTheme) {
+                if (newTheme === 'light') {
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('light-mode');
+                } else {
+                    document.body.classList.remove('light-mode');
+                    document.body.classList.add('dark-mode');
+                }
+                localStorage.setItem('theme-preference', newTheme);
+                if (window.lucide) window.lucide.createIcons();
+            }
+
+            function applyRtlPreference(newRtl) {
+                if (newRtl) {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                    document.body.classList.add('rtl-mode');
+                } else {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                    document.body.classList.remove('rtl-mode');
+                }
+                localStorage.setItem('rtl-preference', String(newRtl));
+                if (window.lucide) window.lucide.createIcons();
+            }
+
+            var themeButtons = [document.getElementById('dashThemeToggleBtn'), document.getElementById('dashThemeToggleBtnMobile')].filter(Boolean);
+            themeButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var isLight = document.body.classList.contains('light-mode');
+                    applyThemePreference(isLight ? 'dark' : 'light');
+                });
+            });
+
+            var rtlButtons = [document.getElementById('dashRtlToggleBtn'), document.getElementById('dashRtlToggleBtnMobile')].filter(Boolean);
+            rtlButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+                    applyRtlPreference(!isRtl);
+                });
+            });
+
+            if (localStorage.getItem('rtl-preference') === 'true') {
+                applyRtlPreference(true);
+            }
+        })();
     </script>
     <script src="script.js"></script>
 </body>

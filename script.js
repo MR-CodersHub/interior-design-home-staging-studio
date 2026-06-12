@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // 0. LUXURY DARK/LIGHT THEME SWITCHER
     initThemeToggle();
 
+    // 0a. RTL LAYOUT SWITCHER
+    initRtlToggle();
+
     // 1. PAGE PRELOADER SYSTEM
     initPagePreloader();
 
@@ -526,7 +529,7 @@ function initConsultationBookingForm() {
             if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = "1";
-                submitBtn.textContent = "REQUEST ATELIER INVITATION";
+                submitBtn.textContent = "REQUEST STUDIO INVITATION";
             }
 
             // 3. Populate confirmation lines
@@ -689,4 +692,43 @@ function initBeforeAfterFilters() {
             });
         });
     });
+}
+
+/* --------------------------------------------------------------------------
+   15. RTL LAYOUT DIRECTION TOGGLE
+   -------------------------------------------------------------------------- */
+function initRtlToggle() {
+    const rtlToggleBtn = document.getElementById("rtlToggleBtn");
+    
+    // A. Retrieve preference from localStorage
+    const savedRtl = localStorage.getItem("rtl-preference");
+    
+    const applyRtl = (isRtl) => {
+        if (isRtl) {
+            document.documentElement.setAttribute("dir", "rtl");
+            document.body.classList.add("rtl-mode");
+        } else {
+            document.documentElement.setAttribute("dir", "ltr");
+            document.body.classList.remove("rtl-mode");
+        }
+        // Force updating Lucide icon states
+        if (window.lucide) window.lucide.createIcons();
+    };
+
+    // B. Apply initial state
+    if (savedRtl === "true") {
+        applyRtl(true);
+    } else {
+        applyRtl(false);
+    }
+
+    // C. Click event listener
+    if (rtlToggleBtn) {
+        rtlToggleBtn.addEventListener("click", () => {
+            const isRtl = document.documentElement.getAttribute("dir") === "rtl";
+            const newRtl = !isRtl;
+            localStorage.setItem("rtl-preference", newRtl);
+            applyRtl(newRtl);
+        });
+    }
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Verdant - Private design journals and real estate staging insights. Read editorial notes from our principal creators.">
-    <title>VERDANT | Atelier Journals Blog</title>
+    <title>VERDANT | Design Journals Blog</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
@@ -83,13 +83,16 @@
                     <i data-lucide="sun" class="sun-icon"></i>
                     <i data-lucide="moon" class="moon-icon"></i>
                 </button>
+                <button class="rtl-toggle-btn" id="rtlToggleBtn" aria-label="Toggle Layout Direction">
+                    <i data-lucide="languages"></i>
+                </button>
                 <div class="user-account-wrapper">
                     <button class="account-toggle-btn" id="accountToggleBtn" aria-label="User Account">
                         <i data-lucide="user"></i>
                     </button>
                     <div class="account-dropdown" id="accountDropdown">
                         <div class="account-dropdown-header">
-                            <span>Atelier Access</span>
+                            <span>Portal Access</span>
                             <h4>Verdant Portal</h4>
                         </div>
                         <ul class="account-dropdown-list">
@@ -128,11 +131,11 @@
     <section class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="container">
-            <h1 class="page-title animate-on-scroll slide-up">Atelier Journals</h1>
+            <h1 class="page-title animate-on-scroll slide-up">Design Journals</h1>
             <ul class="breadcrumbs animate-on-scroll slide-up">
                 <li><a href="index.html">Home</a></li>
                 <li class="separator">/</li>
-                <li>Atelier Journals</li>
+                <li>Design Journals</li>
             </ul>
         </div>
     </section>
@@ -148,7 +151,7 @@
                     <!-- Article Card 1 -->
                     <article class="blog-article-card" style="margin-bottom: 50px; background: rgba(10, 24, 20, 0.4); border: 1px solid var(--emerald-darker); border-radius: var(--radius-lg); overflow: hidden;">
                         <div class="blog-post-visual-wrapper" style="height: 350px; overflow: hidden; position: relative;">
-                            <img src="assets/images/hero_interior.png" alt="Atmospheric living interior" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="assets/images/blog_lighting.png" alt="Atmospheric living interior" style="width: 100%; height: 100%; object-fit: cover;">
                             <div class="stage-stamp good" style="position: absolute; top: 20px; left: 20px;">INTERIOR STYLE</div>
                         </div>
                         <div class="blog-post-content" style="padding: 30px;">
@@ -164,7 +167,7 @@
                     <!-- Article Card 2 -->
                     <article class="blog-article-card" style="margin-bottom: 50px; background: rgba(10, 24, 20, 0.4); border: 1px solid var(--emerald-darker); border-radius: var(--radius-lg); overflow: hidden;">
                         <div class="blog-post-visual-wrapper" style="height: 350px; overflow: hidden; position: relative;">
-                            <img src="assets/images/home_staging.png" alt="Staged residence Malibu" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="assets/images/blog_staging.png" alt="Staged residence Malibu" style="width: 100%; height: 100%; object-fit: cover;">
                             <div class="stage-stamp good" style="position: absolute; top: 20px; left: 20px;">REAL ESTATE STAGING</div>
                         </div>
                         <div class="blog-post-content" style="padding: 30px;">
@@ -235,16 +238,16 @@
                         Crafting cinematic residential spaces with deep emerald, charcoal, and warm gold aesthetics. We sculpt environments that feel intensely bespoke, elevated, and deeply memorable.
                     </p>
                     <div class="socials-row">
-                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                         </a>
-                        <a href="#" class="social-icon-btn" aria-label="Pinterest">
-                            <i data-lucide="pin"></i>
+                        <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Pinterest">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20c4.2 0 7.6-3.4 7.6-7.8 0-4.4-3.4-7.8-7.6-7.8S.4 7.8.4 12.2c0 2.1.8 4.1 2.2 5.5-.1.4-.2 1-.2 1.5 0 1.2.7 1.7.7 1.7s-.3 1.1-.4 1.6c-.1.6.1 1.4.5 1.9.4.5 1.1.7 1.7.4.7-.3 1.9-.8 2.7-1.5.8.2 1.6.3 2.4.3Z"/><path d="M10 18c1.8 0 3.5-.6 4.8-1.7"/></svg>
                         </a>
-                        <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
-                        <a href="#" class="social-icon-btn" aria-label="Facebook">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                         </a>
                     </div>
@@ -261,9 +264,9 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: The Atelier -->
+                <!-- Column 3: The Studio -->
                 <div class="footer-col">
-                    <h4 class="footer-col-title">The Atelier</h4>
+                    <h4 class="footer-col-title">The Studio</h4>
                     <ul class="footer-links-list">
                         <li><a href="about.html">Our Narrative</a></li>
                         <li><a href="portfolio.html">Selected Works</a></li>
@@ -275,7 +278,7 @@
 
                 <!-- Column 4: Registry & Newsletter -->
                 <div class="footer-col">
-                    <h4 class="footer-col-title">Atelier Access</h4>
+                    <h4 class="footer-col-title">Portal Access</h4>
                     <p class="newsletter-desc">Subscribe to receive private collection viewings, editorial staging notes, and design philosophy updates.</p>
                     <form class="footer-newsletter-form" id="footerNewsletterForm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
                         <input type="email" placeholder="Your email address..." required aria-label="Email address">
@@ -292,7 +295,7 @@
                 <div class="footer-meta-links">
                     <a href="faq.html">Privacy Policy</a>
                     <a href="faq.html">Terms of Service</a>
-                    <a href="contact.html">Atelier Support</a>
+                    <a href="contact.html">Studio Support</a>
                 </div>
             </div>
         </div>

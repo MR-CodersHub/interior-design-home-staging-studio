@@ -83,13 +83,16 @@
                     <i data-lucide="sun" class="sun-icon"></i>
                     <i data-lucide="moon" class="moon-icon"></i>
                 </button>
+                <button class="rtl-toggle-btn" id="rtlToggleBtn" aria-label="Toggle Layout Direction">
+                    <i data-lucide="languages"></i>
+                </button>
                 <div class="user-account-wrapper">
                     <button class="account-toggle-btn" id="accountToggleBtn" aria-label="User Account">
                         <i data-lucide="user"></i>
                     </button>
                     <div class="account-dropdown" id="accountDropdown">
                         <div class="account-dropdown-header">
-                            <span>Atelier Access</span>
+                            <span>Portal Access</span>
                             <h4>Verdant Portal</h4>
                         </div>
                         <ul class="account-dropdown-list">
@@ -184,6 +187,206 @@
         </div>
     </section>
 
+    <section class="before-after-section py-large section-divider" style="background-color: var(--clr-bg-dark);">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">BEFORE & AFTER TRANSFORMATIONS</span>
+                <h2 class="section-title text-center">How our design and staging work transforms spaces into standout homes</h2>
+                <p class="section-desc max-width-center text-center">Browse a curated set of room makeovers that combine refined styling, practical layout decisions, and measurable appeal improvements for residential and staged listings.</p>
+            </div>
+
+            <div class="ba-slider-grid">
+                <article class="ba-slider-card animate-on-scroll fade-in" data-category="living-room" style="--slider-pos: 50%;">
+                    <div class="ba-slider-container">
+                        <div class="ba-image-before">
+                            <img src="assets/images/before_living.png" alt="Before living room transformation">
+                            <span class="ba-label before">Before</span>
+                        </div>
+                        <div class="ba-image-after">
+                            <img src="assets/images/hero_interior.png" alt="After living room transformation">
+                            <span class="ba-label after">After</span>
+                        </div>
+                        <div class="ba-drag-handle"><div class="ba-handle-line"></div><div class="ba-handle-button"><i data-lucide="chevrons-left-right"></i></div></div>
+                        <input type="range" min="0" max="100" value="50" class="ba-slider-range" aria-label="Before and after comparison slider">
+                    </div>
+                    <div class="ba-card-details">
+                        <div class="ba-header-meta"><span class="ba-project-style">Statement Living</span><span class="ba-progress-label">+36% visual appeal</span></div>
+                        <h3 class="ba-project-title">Bel Air Lounge Refresh</h3>
+                        <p class="ba-project-desc">A warm, layered update that introduced rich texture, brighter circulation, and a more curated focal point for entertaining and everyday living.</p>
+                        <div class="ba-project-meta"><span class="ba-meta-item"><i data-lucide="clock"></i> 4 weeks</span><span class="ba-meta-item"><i data-lucide="sparkles"></i>Brighter lighting + sculpted seating</span></div>
+                    </div>
+                </article>
+
+                <article class="ba-slider-card animate-on-scroll fade-in" data-category="bedroom" style="--slider-pos: 50%;">
+                    <div class="ba-slider-container">
+                        <div class="ba-image-before">
+                            <img src="assets/images/before_bedroom.png" alt="Before bedroom transformation">
+                            <span class="ba-label before">Before</span>
+                        </div>
+                        <div class="ba-image-after">
+                            <img src="assets/images/project_bedroom.png" alt="After bedroom transformation">
+                            <span class="ba-label after">After</span>
+                        </div>
+                        <div class="ba-drag-handle"><div class="ba-handle-line"></div><div class="ba-handle-button"><i data-lucide="chevrons-left-right"></i></div></div>
+                        <input type="range" min="0" max="100" value="50" class="ba-slider-range" aria-label="Before and after comparison slider">
+                    </div>
+                    <div class="ba-card-details">
+                        <div class="ba-header-meta"><span class="ba-project-style">Editorial Bedroom</span><span class="ba-progress-label">+22% buyer interest</span></div>
+                        <h3 class="ba-project-title">Chelsea Suite Redesign</h3>
+                        <p class="ba-project-desc">Soft, sophisticated layers transformed a dated bedroom into a calming retreat with tailored storage, tonal textiles, and a polished visual finish.</p>
+                        <div class="ba-project-meta"><span class="ba-meta-item"><i data-lucide="clock"></i> 3 weeks</span><span class="ba-meta-item"><i data-lucide="layers"></i>Layered bedding + new lighting narrative</span></div>
+                    </div>
+                </article>
+
+                <article class="ba-slider-card animate-on-scroll fade-in" data-category="kitchen" style="--slider-pos: 50%;">
+                    <div class="ba-slider-container">
+                        <div class="ba-image-before">
+                            <img src="assets/images/before_kitchen.png" alt="Before kitchen transformation">
+                            <span class="ba-label before">Before</span>
+                        </div>
+                        <div class="ba-image-after">
+                            <img src="assets/images/project_kitchen.png" alt="After kitchen transformation">
+                            <span class="ba-label after">After</span>
+                        </div>
+                        <div class="ba-drag-handle"><div class="ba-handle-line"></div><div class="ba-handle-button"><i data-lucide="chevrons-left-right"></i></div></div>
+                        <input type="range" min="0" max="100" value="50" class="ba-slider-range" aria-label="Before and after comparison slider">
+                    </div>
+                    <div class="ba-card-details">
+                        <div class="ba-header-meta"><span class="ba-project-style">Luxury Culinary</span><span class="ba-progress-label">+18% listing value</span></div>
+                        <h3 class="ba-project-title">Malibu Kitchen Upgrade</h3>
+                        <p class="ba-project-desc">High-contrast surfaces, feature lighting, and refined storage solutions gave the kitchen a premium, editorial feel while improving daily usability.</p>
+                        <div class="ba-project-meta"><span class="ba-meta-item"><i data-lucide="clock"></i> 5 weeks</span><span class="ba-meta-item"><i data-lucide="package-check"></i>Stone, walnut, and appliance styling upgrade</span></div>
+                    </div>
+                </article>
+
+                <article class="ba-slider-card animate-on-scroll fade-in" data-category="home-staging" style="--slider-pos: 50%;">
+                    <div class="ba-slider-container">
+                        <div class="ba-image-before">
+                            <img src="assets/images/before_staging.png" alt="Before staging transformation">
+                            <span class="ba-label before">Before</span>
+                        </div>
+                        <div class="ba-image-after">
+                            <img src="assets/images/project_dining.png" alt="After staging transformation">
+                            <span class="ba-label after">After</span>
+                        </div>
+                        <div class="ba-drag-handle"><div class="ba-handle-line"></div><div class="ba-handle-button"><i data-lucide="chevrons-left-right"></i></div></div>
+                        <input type="range" min="0" max="100" value="50" class="ba-slider-range" aria-label="Before and after comparison slider">
+                    </div>
+                    <div class="ba-card-details">
+                        <div class="ba-header-meta"><span class="ba-project-style">Editorial Staging</span><span class="ba-progress-label">2-week sell-through</span></div>
+                        <h3 class="ba-project-title">Metropolitan Listing Staging</h3>
+                        <p class="ba-project-desc">Furniture placement, styling accents, and depth-led presentation elevated this property for faster buyer engagement and stronger online impression.</p>
+                        <div class="ba-project-meta"><span class="ba-meta-item"><i data-lucide="clock"></i> 10 days</span><span class="ba-meta-item"><i data-lucide="badge-check"></i>Faster listing appeal + polished curb-to-living flow</span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-large section-divider">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">OUR SERVICE RANGE</span>
+                <h2 class="section-title text-center">A Full Studio of Interior Design & Home Staging Services</h2>
+                <p class="section-desc max-width-center text-center">From early consultation and planning to styling, sourcing, and project coordination, our services are designed to support both aesthetic ambition and practical outcomes.</p>
+            </div>
+            <div class="services-grid">
+                <article class="service-card animate-on-scroll slide-up card-delay-1">
+                    <div class="service-icon-bg"><i data-lucide="messages-square" class="service-icon"></i></div>
+                    <h3 class="service-title">Interior Design Consultation</h3>
+                    <p class="service-text">We begin with an in-depth consultation to understand goals, lifestyle needs, timeline, and the emotional tone you want your space to create.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-2">
+                    <div class="service-icon-bg"><i data-lucide="move-horizontal" class="service-icon"></i></div>
+                    <h3 class="service-title">Space Planning</h3>
+                    <p class="service-text">Our planning approach improves traffic flow, maximizes usable square footage, and brings better balance to every room and circulation path.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-3">
+                    <div class="service-icon-bg"><i data-lucide="armchair" class="service-icon"></i></div>
+                    <h3 class="service-title">Home Staging</h3>
+                    <p class="service-text">We style homes to highlight their best features, create emotional appeal, and present properties in a way that supports faster selling and stronger market interest.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-1">
+                    <div class="service-icon-bg"><i data-lucide="package" class="service-icon"></i></div>
+                    <h3 class="service-title">Furniture & Decor Selection</h3>
+                    <p class="service-text">We curate pieces, finishes, artwork, and accessories that bring cohesion, warmth, and sophistication to the overall design concept.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-2">
+                    <div class="service-icon-bg"><i data-lucide="palette" class="service-icon"></i></div>
+                    <h3 class="service-title">Color Consultation</h3>
+                    <p class="service-text">Our color guidance helps you select tones that emphasize architecture, improve mood, and support a consistent brand or lifestyle identity.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-3">
+                    <div class="service-icon-bg"><i data-lucide="home" class="service-icon"></i></div>
+                    <h3 class="service-title">Residential Design</h3>
+                    <p class="service-text">From single-room refreshes to full-home design, we create calm, welcoming, and highly functional interiors that reflect how clients truly live.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-1">
+                    <div class="service-icon-bg"><i data-lucide="building-2" class="service-icon"></i></div>
+                    <h3 class="service-title">Commercial Design</h3>
+                    <p class="service-text">We shape retail, hospitality, boutique, and office environments that communicate professionalism, brand identity, and customer comfort.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-2">
+                    <div class="service-icon-bg"><i data-lucide="hammer" class="service-icon"></i></div>
+                    <h3 class="service-title">Renovation Styling</h3>
+                    <p class="service-text">Our styling support helps properties feel complete during renovation, refurbishment, or pre-listing preparation by defining the final look and atmosphere.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-3">
+                    <div class="service-icon-bg"><i data-lucide="workflow" class="service-icon"></i></div>
+                    <h3 class="service-title">Project Management</h3>
+                    <p class="service-text">We coordinate scheduling, sourcing, site communication, and installation details to keep the project organized, efficient, and aligned with your goals.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-large section-divider">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content animate-on-scroll slide-right">
+                    <span class="section-tag">WHY CHOOSE US</span>
+                    <h2 class="section-title">A studio that combines design expertise, presentation strategy, and delivery confidence</h2>
+                    <p class="about-p text-highlight">Our clients choose us because we combine creative taste with strong project insight. Every service is tailored to improve function, refine visual impact, and create a polished result that feels personal and professional.</p>
+                    <p class="about-p">From the first consultation to final styling, we aim to reduce stress, improve clarity, and make the process feel approachable. We focus on practical decisions, premium material choices, and a design language that consistently supports the client’s goals.</p>
+                </div>
+                <div class="about-content animate-on-scroll slide-left">
+                    <div class="service-card active">
+                        <h3 class="service-title">What Clients Can Expect</h3>
+                        <ul class="service-bullet-points">
+                            <li>Clear recommendations and transparent timelines</li>
+                            <li>Refined, practical design decisions for real life</li>
+                            <li>Stylish presentation that enhances value and appeal</li>
+                            <li>Professional coordination from concept to installation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-large section-divider">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
+                <h2 class="section-title text-center">Common Questions About Our Studio Services</h2>
+            </div>
+            <div class="services-grid">
+                <article class="service-card animate-on-scroll slide-up card-delay-1">
+                    <h3 class="service-title">Do you work on both residential and commercial spaces?</h3>
+                    <p class="service-text">Yes. We create tailored interior concepts for homes, boutique retail environments, hospitality spaces, and select commercial settings that require a polished visual identity.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-2">
+                    <h3 class="service-title">How do you support property presentation and home staging?</h3>
+                    <p class="service-text">We emphasize layout, mood, lighting, and key focal points so the property feels welcoming, spacious, and ready to attract buyers or tenants.</p>
+                </article>
+                <article class="service-card animate-on-scroll slide-up card-delay-3">
+                    <h3 class="service-title">What makes your design process different?</h3>
+                    <p class="service-text">Our process combines creative direction, practical space planning, and strong project coordination to keep decisions focused and the result cohesive.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- METHODOLOGY PROCESS SECTION -->
     <section class="process-timeline py-large">
         <div class="container">
@@ -237,9 +440,9 @@
     <section class="concierge-calculator-section py-large section-divider">
         <div class="container">
             <div class="section-header-centered animate-on-scroll fade-in">
-                <span class="section-tag">ATELIER CONCIERGE</span>
+                <span class="section-tag">STUDIO CONCIERGE</span>
                 <h2 class="section-title text-center">Bespoke Spatial Investment Estimator</h2>
-                <p class="section-desc max-width-center text-center">Fine-tune your spatial vision below to calculate real-time investment tier estimates, recommended design scopes, and estimated atelier timelines.</p>
+                <p class="section-desc max-width-center text-center">Fine-tune your spatial vision below to calculate real-time investment tier estimates, recommended design scopes, and estimated studio timelines.</p>
             </div>
 
             <div class="calculator-card-wrapper animate-on-scroll slide-up">
@@ -250,7 +453,7 @@
                         
                         <!-- Step 1: Service Selection -->
                         <div class="calc-group">
-                            <label class="calc-label">Atelier Service Tier</label>
+                            <label class="calc-label">Design Service Tier</label>
                             <div class="calc-option-grid" id="serviceTypeGrid">
                                 <button class="calc-btn active" data-service="bespoke">
                                     <i data-lucide="paint-bucket"></i>
@@ -300,7 +503,7 @@
 
                     <!-- Output Results Panel -->
                     <div class="calc-results-panel">
-                        <h3 class="calc-panel-title">Atelier Estimation</h3>
+                        <h3 class="calc-panel-title">Investment Estimation</h3>
 
                         <div class="results-box">
                             <span class="results-tag">ESTIMATED INVESTMENT TIER</span>
@@ -313,7 +516,7 @@
 
                         <div class="results-meta-grid">
                             <div class="meta-item">
-                                <span class="meta-item-label">ATELIER TIMELINE</span>
+                                <span class="meta-item-label">PROJECT TIMELINE</span>
                                 <span class="meta-item-value" id="calcTimeline">4 - 6 Weeks</span>
                             </div>
                             <div class="meta-item">
@@ -332,7 +535,7 @@
                         </div>
 
                         <a href="contact.html" class="btn btn-primary btn-calc-action">
-                            <span>Secure Atelier Slot</span>
+                            <span>Secure Design Slot</span>
                             <i data-lucide="calendar"></i>
                         </a>
                     </div>
@@ -511,17 +714,23 @@
                         Crafting cinematic residential spaces with deep emerald, charcoal, and warm gold aesthetics. We sculpt environments that feel intensely bespoke, elevated, and deeply memorable.
                     </p>
                     <div class="socials-row">
-                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                         </a>
-                        <a href="#" class="social-icon-btn" aria-label="Pinterest">
-                            <i data-lucide="pin"></i>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                         </a>
-                        <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                        <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Pinterest">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20c4.2 0 7.6-3.4 7.6-7.8 0-4.4-3.4-7.8-7.6-7.8S.4 7.8.4 12.2c0 2.1.8 4.1 2.2 5.5-.1.4-.2 1-.2 1.5 0 1.2.7 1.7.7 1.7s-.3 1.1-.4 1.6c-.1.6.1 1.4.5 1.9.4.5 1.1.7 1.7.4.7-.3 1.9-.8 2.7-1.5.8.2 1.6.3 2.4.3Z"/><path d="M10 18c1.8 0 3.5-.6 4.8-1.7"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
-                        <a href="#" class="social-icon-btn" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a2.5 2.5 0 0 1 2.5-2.5h14A2.5 2.5 0 0 1 21.5 17v-1.8c0-1.2-.6-2.3-1.6-3l-1.5-1.1a3 3 0 0 1-1-2.4V6.5A2.5 2.5 0 0 0 15.9 4h-7.8A2.5 2.5 0 0 0 5.6 6.5v2.2c0 .9-.4 1.8-1 2.4L3 12.2c-1 .7-1.6 1.8-1.6 3Z"/><path d="m10 9 5 3-5 3z"/></svg>
+                        </a>
+                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="X / Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16"/><path d="M20 4L4 20"/></svg>
                         </a>
                     </div>
                 </div>
@@ -537,9 +746,9 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: The Atelier -->
+                <!-- Column 3: The Studio -->
                 <div class="footer-col">
-                    <h4 class="footer-col-title">The Atelier</h4>
+                    <h4 class="footer-col-title">The Studio</h4>
                     <ul class="footer-links-list">
                         <li><a href="about.html">Our Narrative</a></li>
                         <li><a href="portfolio.html">Selected Works</a></li>
@@ -551,7 +760,7 @@
 
                 <!-- Column 4: Registry & Newsletter -->
                 <div class="footer-col">
-                    <h4 class="footer-col-title">Atelier Access</h4>
+                    <h4 class="footer-col-title">Portal Access</h4>
                     <p class="newsletter-desc">Subscribe to receive private collection viewings, editorial staging notes, and design philosophy updates.</p>
                     <form class="footer-newsletter-form" id="footerNewsletterForm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
                         <input type="email" placeholder="Your email address..." required aria-label="Email address">
@@ -568,7 +777,7 @@
                 <div class="footer-meta-links">
                     <a href="faq.html">Privacy Policy</a>
                     <a href="faq.html">Terms of Service</a>
-                    <a href="contact.html">Atelier Support</a>
+                    <a href="contact.html">Studio Support</a>
                 </div>
             </div>
         </div>

@@ -72,13 +72,16 @@
                     <i data-lucide="sun" class="sun-icon"></i>
                     <i data-lucide="moon" class="moon-icon"></i>
                 </button>
+                <button class="rtl-toggle-btn" id="rtlToggleBtn" aria-label="Toggle Layout Direction">
+                    <i data-lucide="languages"></i>
+                </button>
                 <div class="user-account-wrapper">
                     <button class="account-toggle-btn" id="accountToggleBtn" aria-label="User Account">
                         <i data-lucide="user"></i>
                     </button>
                     <div class="account-dropdown" id="accountDropdown">
                         <div class="account-dropdown-header">
-                            <span>Atelier Access</span>
+                            <span>Portal Access</span>
                             <h4>Verdant Portal</h4>
                         </div>
                         <ul class="account-dropdown-list">
@@ -116,8 +119,7 @@
     <!-- FULLSCREEN HERO SECTION -->
     <section class="hero-section" id="home">
         <div class="hero-bg-container">
-            <img src="assets/images/hero_interior.png" alt="Luxury Emerald Living Space" class="hero-bg-img"
-                id="heroBg">
+            <img src="assets/images/hero_bg_main.png" alt="Luxury Emerald Living Space" class="hero-bg-img" id="heroBg">
             <div class="hero-overlay"></div>
             <div class="hero-warm-lamp"></div>
         </div>
@@ -125,22 +127,23 @@
         <div class="hero-content-wrapper">
             <div class="container">
                 <div class="hero-text-content">
-                    <span class="hero-subtitle text-reveal">ELEVATING SPATIAL NARRATIVES</span>
+                    <span class="hero-subtitle text-reveal">ARCHITECTURAL CURATION & ELITE STAGING</span>
                     <h1 class="hero-title text-reveal">
                         Crafting Cinematic <br>
-                        <span class="highlight-serif">Living Experiences</span>
+                        <span class="highlight-serif">Living Narratives</span>
                     </h1>
                     <p class="hero-description text-reveal">
-                        We merge rich dark emerald textures, charcoal slate, and organic warm light, sculpting
-                        environments that feel intensely bespoke, elevated, and deeply memorable.
+                        We harmonize deep forest emerald textures, charcoal slate, and organic ambient light, sculpting
+                        bespoke residential environments and luxury estates that evoke quiet luxury and leave an
+                        indelible impression.
                     </p>
                     <div class="hero-actions text-reveal">
                         <a href="#projects" class="btn btn-primary">
-                            <span>Explore Portfolio</span>
+                            <span>View Selected Works</span>
                             <i data-lucide="arrow-up-right"></i>
                         </a>
                         <a href="#about" class="btn btn-outline">
-                            <span>Our Philosophy</span>
+                            <span>Our Design Ethos</span>
                         </a>
                     </div>
                 </div>
@@ -174,17 +177,21 @@
                         <span class="highlight-serif">Intentional Curation.</span>
                     </h2>
                     <p class="about-p text-highlight">
-                        At Verdant, we believe luxury is a felt experience. We design and stage spaces that are
-                        layered, sophisticated, and evocative.
+                        At Verdant, we believe luxury is a quiet, visceral experience. We design and stage spaces that
+                        are
+                        layered, sophisticated, and evocative—conceptually tailored to resonate with discerning tastes.
                     </p>
                     <p class="about-p">
-                        Our style is inspired by modern architectural geometry and a deep organic palette—marrying moody
-                        dark emerald walls, sleek matte black accents, marble textures, and rich tactile linens, all
-                        anchored by premium warm spotlighting.
+                        Our signature aesthetic is defined by architectural geometry and a rich organic palette. We
+                        compose
+                        environments by pairing moody forest emerald backdrops with textured charcoal stone, Calacatta
+                        marble,
+                        and tactile fabrics, all harmonized under premium, low-glare spotlighting.
                     </p>
                     <p class="about-p">
-                        Whether staging a multi-million dollar estate to capture high-end buyers or designing a bespoke
-                        private residence, our layouts focus on asymmetry, exquisite materiality, and visual balance.
+                        Whether staging a multi-million dollar estate to optimize market premium or composing a private
+                        turnkey residence, our designs prioritize raw materiality, refined asymmetry, and flawless
+                        visual balance.
                     </p>
 
                     <!-- Animated Counters -->
@@ -224,6 +231,50 @@
         </div>
     </section>
 
+    <!-- WHY CHOOSE VERDANT -->
+    <section class="why-choose-section py-large section-divider" id="why-choose">
+        <div class="container">
+            <div class="section-header-centered animate-on-scroll fade-in">
+                <span class="section-tag">WHY CHOOSE VERDANT</span>
+                <h2 class="section-title text-center">
+                    Luxury Design, Precision Staging, <br>
+                    <span class="highlight-serif">and Measurable Market Impact</span>
+                </h2>
+                <p class="section-desc max-width-center text-center">
+                    Every project is shaped with editorial care, attentive detailing, and a deep understanding of how
+                    homes are experienced, remembered, and valued.
+                </p>
+            </div>
+
+            <div class="why-choose-grid">
+                <article class="why-choose-card animate-on-scroll slide-up">
+                    <span class="why-choose-icon"><i data-lucide="sparkles"></i></span>
+                    <h3>Personalized Design Solutions</h3>
+                    <p>We tailor every concept to your architectural rhythm, lifestyle, and emotional tone—never relying
+                        on generic formulas.</p>
+                </article>
+                <article class="why-choose-card animate-on-scroll slide-up card-delay-2">
+                    <span class="why-choose-icon"><i data-lucide="home"></i></span>
+                    <h3>Luxury Staging Expertise</h3>
+                    <p>From editorial styling to high-value resale positioning, we curate homes that feel aspirational,
+                        warm, and instantly unforgettable.</p>
+                </article>
+                <article class="why-choose-card animate-on-scroll slide-up card-delay-3">
+                    <span class="why-choose-icon"><i data-lucide="gem"></i></span>
+                    <h3>Meticulous Attention to Detail</h3>
+                    <p>Lighting, texture, proportion, and placement are refined with exacting care so every room feels
+                        resolved and elevated.</p>
+                </article>
+                <article class="why-choose-card animate-on-scroll slide-up card-delay-4">
+                    <span class="why-choose-icon"><i data-lucide="shield-check"></i></span>
+                    <h3>Proven Project Success</h3>
+                    <p>Our portfolio spans premium residential transformations and elite staging projects with strong
+                        client satisfaction and market appeal.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- FEATURED PROJECTS (Filterable Asymmetric Gallery) -->
     <section class="projects-section py-large section-divider" id="projects">
         <div class="container">
@@ -234,8 +285,8 @@
                     <span class="highlight-serif">Portfolio Showcase</span>
                 </h2>
                 <p class="section-desc max-width-center text-center">
-                    A curated collection of residences showcasing spatial narrative, dark emerald depth, and premium
-                    organic balancing.
+                    A curated portfolio of signature estates, highlighting our mastery of spatial flow, architectural
+                    depth, and sensory material balance.
                 </p>
             </div>
 
@@ -270,13 +321,13 @@
                     <div class="project-modal-data" style="display:none;">
                         <h3 class="modal-title">The Verdant Sanctuary</h3>
                         <p class="modal-location">Bel Air, California</p>
-                        <p class="modal-desc">This signature residential masterpiece incorporates architectural
-                            concrete, deep emerald velvet, and rich charcoal panelling. The custom-built warm brass
-                            spotlights offer dramatic highlighting, turning the living space into a cinematic haven.</p>
+                        <p class="modal-desc">A signature residential design integrating raw architectural concrete,
+                            deep emerald velvet, and hand-finished oak panels. Precision warm brass spotlights cast
+                            dramatic highlighting, sculpting a cinematic sanctuary.</p>
                         <ul class="modal-features">
                             <li><strong>Area:</strong> 4,200 sq. ft.</li>
                             <li><strong>Style:</strong> Emerald Velvet & Obsidian Concrete</li>
-                            <li><strong>Curation:</strong> Bespoke custom sofas, handpicked marble</li>
+                            <li><strong>Curation:</strong> Bespoke velvet seating, custom granite details</li>
                             <li><strong>Scope:</strong> Full spatial remodelling & lighting</li>
                         </ul>
                     </div>
@@ -300,13 +351,13 @@
                     <div class="project-modal-data" style="display:none;">
                         <h3 class="modal-title">The Obsidian Kitchen</h3>
                         <p class="modal-location">Tribeca, New York</p>
-                        <p class="modal-desc">An state-of-the-art kitchen combining dark matte cabinetry with deep
-                            emerald herringbone backsplash, highlighting elegant gold accents. The waterfall marble
-                            island acts as the central hub of aesthetic functionality.</p>
+                        <p class="modal-desc">An state-of-the-art culinary space combining dark matte cabinetry, a
+                            custom forest-glazed herringbone tile backsplash, and brushed gold accents. A waterfall
+                            Calacatta gold marble island acts as the focal center of utility and art.</p>
                         <ul class="modal-features">
                             <li><strong>Area:</strong> 650 sq. ft.</li>
                             <li><strong>Backsplash:</strong> Hand-crafted emerald glazed ceramic tiles</li>
-                            <li><strong>Stone:</strong> Calacatta Gold Marble waterfall island</li>
+                            <li><strong>Stone:</strong> Calacatta Gold waterfall marble island</li>
                             <li><strong>Fixtures:</strong> Brushed brass luxury kitchen fixtures</li>
                         </ul>
                     </div>
@@ -330,14 +381,14 @@
                     <div class="project-modal-data" style="display:none;">
                         <h3 class="modal-title">The Velvet Master Oasis</h3>
                         <p class="modal-location">Beverly Hills, California</p>
-                        <p class="modal-desc">A boutique hotel style bedroom designed for absolute visual and physical
-                            luxury. The rich emerald green tufted headboard is highlighted by warm bedside pendant lamps
-                            casting a cozy, romantic glow against charcoal-washed linens.</p>
+                        <p class="modal-desc">An editorial master bedroom curated to evoke boutique hospitality. A
+                            bespoke tufted velvet headboard in dark moss is framed by warm, custom pendant spheres
+                            casting a low-glare amber glow against refined Belgian linens.</p>
                         <ul class="modal-features">
                             <li><strong>Wall:</strong> Custom matte dark forest green</li>
                             <li><strong>Bed:</strong> King-sized deep green velvet tufted custom headboard</li>
                             <li><strong>Lighting:</strong> Low-hanging gold pendant light fixtures</li>
-                            <li><strong>Linens:</strong> 1000-thread count charcoal organic sheets</li>
+                            <li><strong>Linens:</strong> 1000-thread count Belgian flax linen</li>
                         </ul>
                     </div>
                 </div>
@@ -360,12 +411,12 @@
                     <div class="project-modal-data" style="display:none;">
                         <h3 class="modal-title">Warm Organic Estate</h3>
                         <p class="modal-location">Malibu, California</p>
-                        <p class="modal-desc">A high-end staging project designed to invoke comfort, openness, and
-                            premium living. Curated with organic beige fabrics, light wood textures, and subtle emerald
-                            decor accents, this property was sold within 4 days of listing.</p>
+                        <p class="modal-desc">An elite staging commission designed to capture high-value market
+                            prominence. Curated with premium bouclé textiles, wire-brushed white oak, and hand-selected
+                            stoneware, this property secured a transaction in just 4 days.</p>
                         <ul class="modal-features">
                             <li><strong>Listing Value:</strong> $8.5 Million</li>
-                            <li><strong>Theme:</strong> Warm beige, gold, and green accents</li>
+                            <li><strong>Theme:</strong> Bouclé textiles, warm oak, and stoneware</li>
                             <li><strong>Fittings:</strong> High-end designer furniture leasing</li>
                             <li><strong>Result:</strong> Under contract in 4 days</li>
                         </ul>
@@ -390,12 +441,12 @@
                     <div class="project-modal-data" style="display:none;">
                         <h3 class="modal-title">The Gilded Bathhouse</h3>
                         <p class="modal-location">Chelsea, London</p>
-                        <p class="modal-desc">Marrying functional purity with artistic indulgence. This bespoke bathroom
-                            hosts dark marble floor-to-ceiling tiling, gold brass water features, a freestanding matte
-                            black tub, and a custom backlit floating circular mirror for ambient glowing effect.</p>
+                        <p class="modal-desc">A private wellness suite marrying functional purity with sensory
+                            indulgence. Features floor-to-ceiling Nero Marquina marble, brushed gold fixtures, a
+                            freestanding volcanic limestone tub, and a backlit floating mirror.</p>
                         <ul class="modal-features">
                             <li><strong>Stone:</strong> Nero Marquina Black Marble</li>
-                            <li><strong>Tub:</strong> High-end custom matte composite black tub</li>
+                            <li><strong>Tub:</strong> Freestanding volcanic limestone tub</li>
                             <li><strong>Mirror:</strong> Backlit smart warm LED circular mirror</li>
                             <li><strong>Accents:</strong> Real 24k gold-brushed details</li>
                         </ul>
@@ -420,14 +471,77 @@
                     <div class="project-modal-data" style="display:none;">
                         <h3 class="modal-title">Ethereal Dining Showcase</h3>
                         <p class="modal-location">Miami, Florida</p>
-                        <p class="modal-desc">This premium dining room staging combines sleek geometries and luxurious
-                            materials. A custom solid black marble table with brass legs anchors the room, paired with
-                            emerald green dining chairs and an organic modern gold chandelier.</p>
+                        <p class="modal-desc">An editorial dining space blending sculptural geometries and rich
+                            materiality. Anchored by a monolithic black Belgian marble table with raw brass supports,
+                            paired with custom moss-velvet seating and a branching architectural chandelier.</p>
                         <ul class="modal-features">
                             <li><strong>Table:</strong> Black Belgian Marble round table</li>
                             <li><strong>Seating:</strong> Deep forest green custom velvet dining chairs</li>
                             <li><strong>Lighting:</strong> Contemporary minimalist gold structure</li>
-                            <li><strong>Aesthetic:</strong> High-end modern dining appeal</li>
+                            <li><strong>Aesthetic:</strong> Symmetry, scale, and bespoke brass details</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Project Card 7 (Standard) - Penthouse Skyline Suite -->
+                <div class="project-card masonry-item animate-on-scroll fade-in" data-category="interior residential">
+                    <div class="project-img-container">
+                        <img src="assets/images/project_penthouse.png" alt="Penthouse Skyline Suite">
+                        <div class="project-card-overlay">
+                            <div class="project-details">
+                                <span class="project-category">Penthouse Interior</span>
+                                <h3 class="project-title">The Skyline Penthouse</h3>
+                                <span class="project-view-btn">
+                                    <span>View Portfolio</span>
+                                    <i data-lucide="plus"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-modal-data" style="display:none;">
+                        <h3 class="modal-title">The Skyline Penthouse</h3>
+                        <p class="modal-location">Midtown Manhattan, New York</p>
+                        <p class="modal-desc">A crown-floor commission redefining urban luxury. Anchored by a sweeping
+                            panoramic city wall, the residence features a custom curved ivory bouclé sectional, smoked
+                            glass surfaces, and precision recessed lighting that mirrors the glittering skyline at dusk.
+                        </p>
+                        <ul class="modal-features">
+                            <li><strong>Area:</strong> 5,800 sq. ft. full-floor penthouse</li>
+                            <li><strong>Feature Wall:</strong> Monolithic dark grey honed basalt stone</li>
+                            <li><strong>Seating:</strong> Custom curved ivory bouclé sectional</li>
+                            <li><strong>Lighting:</strong> Architectural recessed warm-gold ambient system</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project Card 8 (Standard) - The Scholar's Library -->
+                <div class="project-card masonry-item animate-on-scroll fade-in" data-category="interior residential">
+                    <div class="project-img-container">
+                        <img src="assets/images/project_library.png" alt="The Scholar's Private Library">
+                        <div class="project-card-overlay">
+                            <div class="project-details">
+                                <span class="project-category">Private Study &amp; Library</span>
+                                <h3 class="project-title">The Scholar's Library</h3>
+                                <span class="project-view-btn">
+                                    <span>View Portfolio</span>
+                                    <i data-lucide="plus"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-modal-data" style="display:none;">
+                        <h3 class="modal-title">The Scholar's Library</h3>
+                        <p class="modal-location">Mayfair, London</p>
+                        <p class="modal-desc">An intimate residential library and home study designed for contemplative
+                            excellence. Floor-to-ceiling dark walnut bespoke shelving frames a hand-carved marble
+                            fireplace, while a tufted forest-green leather chesterfield and warm brass lighting create a
+                            sanctuary of intellectual sophistication.</p>
+                        <ul class="modal-features">
+                            <li><strong>Shelving:</strong> Bespoke floor-to-ceiling dark walnut cabinetry</li>
+                            <li><strong>Fireplace:</strong> Hand-carved Carrara marble surround</li>
+                            <li><strong>Seating:</strong> Tufted forest green leather chesterfield</li>
+                            <li><strong>Rugs:</strong> Hand-knotted antique Persian wool carpet</li>
                         </ul>
                     </div>
                 </div>
@@ -460,8 +574,9 @@
                     </div>
                     <h3 class="service-title">Bespoke Interior Design</h3>
                     <p class="service-text">
-                        Complete luxury interior design for private residences. We coordinate from structural spatial
-                        planning and electrical layouts to custom millwork, marble curation, and final styling.
+                        Comprehensive architectural interior design for private commissions. Our studio handles spatial
+                        detailing, lighting design, custom millwork curation, material specification, and turnkey
+                        installation.
                     </p>
                     <ul class="service-bullet-points">
                         <li>3D Realistic Visualizations & Renders</li>
@@ -484,8 +599,9 @@
                     </div>
                     <h3 class="service-title">Elite Home Staging</h3>
                     <p class="service-text">
-                        Tailored specifically for real estate developers and homeowners wishing to secure high-value
-                        transactions. We outfit the property with designer furniture, fine art, and premium lighting.
+                        Strategic spatial staging for luxury developers and homeowners seeking premium market
+                        positioning. We commission curated designer furnishings, original artwork, and custom ambient
+                        lighting.
                     </p>
                     <ul class="service-bullet-points">
                         <li>Complete Spatial & Styling Curation</li>
@@ -507,8 +623,8 @@
                     </div>
                     <h3 class="service-title">Art & Accent Curation</h3>
                     <p class="service-text">
-                        For spaces that require final editorial layers. We source original art, handwoven rugs, organic
-                        ceramic accents, and premium lighting solutions to elevate an existing layout.
+                        Curatorial styling and artwork procurement for spaces seeking an editorial layer. We source
+                        original contemporary art, antique textiles, hand-thrown ceramics, and designer lighting.
                     </p>
                     <ul class="service-bullet-points">
                         <li>Original Art & Sculpture Sourcing</li>
@@ -533,12 +649,12 @@
             <div class="section-header-centered animate-on-scroll fade-in">
                 <span class="section-tag">METHODOLOGY</span>
                 <h2 class="section-title text-center">
-                    The Curated Path <br>
-                    <span class="highlight-serif">To Spatial Transformation</span>
+                    The Methodical Path <br>
+                    <span class="highlight-serif">To Architectural Excellence</span>
                 </h2>
                 <p class="section-desc max-width-center text-center">
-                    Our luxury methodology is seamless, structured, and entirely focused on preserving quality and
-                    exceeding expectations.
+                    Our structured design process is tailored to execute vision with uncompromising precision, keeping
+                    your timeline and spatial goals paramount.
                 </p>
             </div>
 
@@ -550,11 +666,15 @@
                         <span class="step-num">01</span>
                     </div>
                     <div class="step-content-card">
-                        <span class="step-phase">PHASE ONE</span>
-                        <h3 class="step-title">The Strategic Consultation</h3>
+                        <div class="process-card-top">
+                            <span class="step-phase">PHASE ONE</span>
+                            <span class="process-icon-pill"><i data-lucide="scan-search"></i></span>
+                        </div>
+                        <h3 class="step-title">Spatial Audit & Alignment</h3>
                         <p class="step-text">
-                            We initiate each project with a visual audit. We explore your spatial goals, aesthetic
-                            inspirations, lifestyle requirements (or listing audience target), and lighting parameters.
+                            We begin with a detailed spatial analysis, exploring architectural layout, ambient light
+                            profiles, functional expectations, and visual inspirations to establish a cohesive
+                            conceptual brief.
                         </p>
                         <span class="step-duration">Timeline: 2 - 3 Days</span>
                     </div>
@@ -566,11 +686,14 @@
                         <span class="step-num">02</span>
                     </div>
                     <div class="step-content-card">
-                        <span class="step-phase">PHASE TWO</span>
-                        <h3 class="step-title">Bespoke Curation & Concept</h3>
+                        <div class="process-card-top">
+                            <span class="step-phase">PHASE TWO</span>
+                            <span class="process-icon-pill"><i data-lucide="palette"></i></span>
+                        </div>
+                        <h3 class="step-title">Material Schemes & Concepts</h3>
                         <p class="step-text">
-                            Our studio crafts digital mood boards, realistic spatial layouts, and detailed textile/stone
-                            material palettes. We compile high-end furnishings, lighting systems, and custom layouts.
+                            Our studio develops spatial configurations, 3D renderings, and physical mood boards
+                            comprising textile swatches, stone samples, and architectural finishes.
                         </p>
                         <span class="step-duration">Timeline: 1 - 2 Weeks</span>
                     </div>
@@ -582,12 +705,14 @@
                         <span class="step-num">03</span>
                     </div>
                     <div class="step-content-card">
-                        <span class="step-phase">PHASE THREE</span>
-                        <h3 class="step-title">Procurement & Sourcing</h3>
+                        <div class="process-card-top">
+                            <span class="step-phase">PHASE THREE</span>
+                            <span class="process-icon-pill"><i data-lucide="package-check"></i></span>
+                        </div>
+                        <h3 class="step-title">Bespoke Sourcing & Logistics</h3>
                         <p class="step-text">
-                            We curate the physical materials, manage high-end furniture leases, source signature
-                            sculptural items, and acquire handcrafted artwork, handling all logistics with detailed
-                            precision.
+                            We coordinate the direct procurement of custom millwork, designer furniture, original art
+                            commissions, and raw stone, overseeing global logistics and white-glove warehousing.
                         </p>
                         <span class="step-duration">Timeline: 2 - 4 Weeks</span>
                     </div>
@@ -599,12 +724,15 @@
                         <span class="step-num">04</span>
                     </div>
                     <div class="step-content-card">
-                        <span class="step-phase">PHASE FOUR</span>
-                        <h3 class="step-title">Artistic Installation & Styling</h3>
+                        <div class="process-card-top">
+                            <span class="step-phase">PHASE FOUR</span>
+                            <span class="process-icon-pill"><i data-lucide="sparkles"></i></span>
+                        </div>
+                        <h3 class="step-title">Turnkey Installation & Styling</h3>
                         <p class="step-text">
-                            Our design and styling crew executes the physical installation. We dress the walls,
-                            coordinate high-end lighting angles, lay the fine fabrics, and style every corner to
-                            magazine-cover perfection.
+                            Our stylists and technicians execute the physical installation on-site. We align light
+                            fixtures, place custom furniture, style curated accents, and deliver a fully realized,
+                            magazine-ready space.
                         </p>
                         <span class="step-duration">Timeline: 2 - 4 Days (Turnkey)</span>
                     </div>
@@ -618,7 +746,35 @@
     <section class="testimonials-section py-large section-divider" id="testimonials">
         <div class="container">
             <div class="testimonials-container animate-on-scroll fade-in">
-                <span class="section-tag text-center text-center-full">CLIENT ESSAYS</span>
+                <div class="section-header-centered" style="margin-bottom: 50px;">
+                    <span class="section-tag text-center-full">CLIENT EXPERIENCE & TESTIMONIALS</span>
+                    <h2 class="section-title text-center">
+                        Stories of Elevated <span class="highlight-serif">Living</span>
+                    </h2>
+                    <p class="section-desc max-width-center text-center">
+                        Reflections on our cinematic spatial design, bespoke material curations, and high-end
+                        residential transformations that evoke emotional depth and lasting value.
+                    </p>
+                </div>
+
+                <div class="experience-metrics-grid">
+                    <article class="experience-metric-card animate-on-scroll slide-up">
+                        <strong>98%</strong>
+                        <span>Client satisfaction</span>
+                    </article>
+                    <article class="experience-metric-card animate-on-scroll slide-up card-delay-2">
+                        <strong>4.9/5</strong>
+                        <span>Average review rating</span>
+                    </article>
+                    <article class="experience-metric-card animate-on-scroll slide-up card-delay-3">
+                        <strong>7 days</strong>
+                        <span>Average listing turnaround</span>
+                    </article>
+                    <article class="experience-metric-card animate-on-scroll slide-up card-delay-4">
+                        <strong>15+</strong>
+                        <span>Editorial award-winning estates</span>
+                    </article>
+                </div>
 
                 <div class="testimonials-carousel" id="testimonialsCarousel">
 
@@ -627,9 +783,9 @@
                         <div class="testimonial-content">
                             <span class="quote-symbol">“</span>
                             <p class="testimonial-quote">
-                                Verdant completely redefined how we perceive our home. The dark emerald and
-                                charcoal palette combined with warm brass lighting details feels incredibly cinematic
-                                and luxury hotel-grade. Our guests are constantly left speechless.
+                                Verdant has completely redefined our relationship with our living space. The interplay
+                                of deep forest velvet, charcoal slate, and meticulously calibrated spotlighting creates
+                                an atmosphere of cinematic grandeur. It is, in every sense, a private sanctuary.
                             </p>
                             <div class="client-author-info">
                                 <h4 class="client-name">Marcus & Elena Vance</h4>
@@ -643,9 +799,10 @@
                         <div class="testimonial-content">
                             <span class="quote-symbol">“</span>
                             <p class="testimonial-quote">
-                                As a luxury developer, staging is critical. Verdant styled our Malibu estate with
-                                such exquisite spatial awareness that the buyer purchased the entire staging inventory
-                                along with the home. Under contract within one week!
+                                For our ultra-high-net-worth listings, staging must transcend typical staging and feel
+                                entirely bespoke. Verdant styled our Malibu coast estate with such artistic precision
+                                and spatial narrative that the buyer acquired the complete interior inventory. Under
+                                contract in under a week.
                             </p>
                             <div class="client-author-info">
                                 <h4 class="client-name">Julian Sterling</h4>
@@ -659,9 +816,9 @@
                         <div class="testimonial-content">
                             <span class="quote-symbol">“</span>
                             <p class="testimonial-quote">
-                                Their attention to materials and light is incomparable. We hired them for our Chelsea
-                                Penthouse. The textures, the velvet, the custom floating circular mirror in our master
-                                bath—it is a stunning spatial narrative.
+                                Their mastery of material dialogue and low-glare lighting is exceptional. The Chelsea
+                                Penthouse has become a study in quiet luxury—the custom bronze details, tactile linens,
+                                and backlit floating mirror reflect a flawless design language.
                             </p>
                             <div class="client-author-info">
                                 <h4 class="client-name">Lady Beatrice Montgomery</h4>
@@ -700,12 +857,12 @@
                 <div class="contact-details-panel animate-on-scroll slide-right">
                     <span class="section-tag">REACH THE STUDIO</span>
                     <h2 class="section-title">
-                        Let us craft your <br>
-                        <span class="highlight-serif">Spatial Masterpiece</span>
+                        Begin Your Bespoke <br>
+                        <span class="highlight-serif">Design Journey</span>
                     </h2>
                     <p class="contact-panel-desc">
-                        Ready to elevate your residential space or stage a luxury listing? Contact our studio to book a
-                        private creative consultation.
+                        Whether staging a high-end listing or detailing a private residence, our West Hollywood studio
+                        provides focused consultations. Let us shape a space that tells your story.
                     </p>
 
                     <div class="contact-info-list">
@@ -733,13 +890,13 @@
                             </div>
                             <div class="info-text">
                                 <h4>Direct Enquiries</h4>
-                                <p>atelier@verdantstudio.design</p>
+                                <p>studio@verdantstudio.design</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="studio-hours-card">
-                        <h4>Atelier Hours</h4>
+                        <h4>Salon Availability</h4>
                         <div class="hours-row">
                             <span>Monday — Friday</span>
                             <span>09:00 AM — 06:00 PM PST</span>
@@ -755,8 +912,8 @@
                 <div class="contact-form-panel animate-on-scroll slide-left">
                     <div class="glass-form-container">
                         <div class="form-header">
-                            <h3>Request Private Consultation</h3>
-                            <p>All information is held strictly confidential.</p>
+                            <h3>Register for Private Consultation</h3>
+                            <p>All inquiries are held in strict confidence.</p>
                         </div>
 
                         <form id="consultationForm">
@@ -777,8 +934,8 @@
                                     <label for="serviceType">Service Requested</label>
                                     <select id="serviceType" required>
                                         <option value="" disabled selected>Select service...</option>
-                                        <option value="interior_design">Bespoke Interior Design</option>
-                                        <option value="home_staging">Elite Home Staging</option>
+                                        <option value="interior_design">Bespoke Interior Design Curation</option>
+                                        <option value="home_staging">Elite Residential Home Staging</option>
                                         <option value="art_curation">Art & Accent Curation</option>
                                     </select>
                                 </div>
@@ -805,12 +962,12 @@
                                 <div class="form-group">
                                     <label for="clientMessage">Tell Us About Your Space</label>
                                     <textarea id="clientMessage" rows="4"
-                                        placeholder="Describe the residence, current condition, structural layout, and your visual preferences (e.g., emerald green accent walls, warm lighting desires)..."></textarea>
+                                        placeholder="Describe the residence, scale, current condition, structural layout, and your visual preferences (e.g., forest green tones, textured slate, custom lighting desires)..."></textarea>
                                 </div>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-submit-form" id="submitFormBtn">
-                                <span>Request Atelier Invitation</span>
+                                <span>Request Studio Invitation</span>
                                 <i data-lucide="send"></i>
                             </button>
                         </form>
@@ -840,7 +997,8 @@
                         sculpt environments that feel intensely bespoke, elevated, and deeply memorable.
                     </p>
                     <div class="socials-row">
-                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn" aria-label="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -849,10 +1007,18 @@
                                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                             </svg>
                         </a>
-                        <a href="#" class="social-icon-btn" aria-label="Pinterest">
-                            <i data-lucide="pin"></i>
+                        <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn" aria-label="Pinterest">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M8 20c4.2 0 7.6-3.4 7.6-7.8 0-4.4-3.4-7.8-7.6-7.8S.4 7.8.4 12.2c0 2.1.8 4.1 2.2 5.5-.1.4-.2 1-.2 1.5 0 1.2.7 1.7.7 1.7s-.3 1.1-.4 1.6c-.1.6.1 1.4.5 1.9.4.5 1.1.7 1.7.4.7-.3 1.9-.8 2.7-1.5.8.2 1.6.3 2.4.3Z" />
+                                <path d="M10 18c1.8 0 3.5-.6 4.8-1.7" />
+                            </svg>
                         </a>
-                        <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn" aria-label="LinkedIn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -862,7 +1028,8 @@
                                 <circle cx="4" cy="4" r="2" />
                             </svg>
                         </a>
-                        <a href="#" class="social-icon-btn" aria-label="Facebook">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn" aria-label="Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -883,9 +1050,9 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: The Atelier -->
+                <!-- Column 3: The Studio -->
                 <div class="footer-col">
-                    <h4 class="footer-col-title">The Atelier</h4>
+                    <h4 class="footer-col-title">The Studio</h4>
                     <ul class="footer-links-list">
                         <li><a href="about.html">Our Narrative</a></li>
                         <li><a href="portfolio.html">Selected Works</a></li>
@@ -897,7 +1064,7 @@
 
                 <!-- Column 4: Registry & Newsletter -->
                 <div class="footer-col">
-                    <h4 class="footer-col-title">Atelier Access</h4>
+                    <h4 class="footer-col-title">Portal Access</h4>
                     <p class="newsletter-desc">Subscribe to receive private collection viewings, editorial staging
                         notes, and design philosophy updates.</p>
                     <form class="footer-newsletter-form" id="footerNewsletterForm"
@@ -917,7 +1084,7 @@
                 <div class="footer-meta-links">
                     <a href="faq.html">Privacy Policy</a>
                     <a href="faq.html">Terms of Service</a>
-                    <a href="contact.html">Atelier Support</a>
+                    <a href="contact.html">Studio Support</a>
                 </div>
             </div>
         </div>

@@ -753,17 +753,58 @@
         @media (max-width: 992px) {
             .mobile-topbar {
                 display: grid;
-                grid-template-columns: 44px 1fr 44px;
+                grid-template-columns: 44px minmax(0, 1fr) auto;
                 align-items: center;
+                gap: 8px;
+                padding: 10px 0 14px;
+                margin-bottom: 14px;
+            }
+            .mobile-brand {
+                justify-content: flex-start;
+                min-width: 0;
+            }
+            .mobile-brand .brand-logo-img {
+                height: 24px;
+                width: auto;
+                flex-shrink: 0;
+            }
+            .mobile-brand .logo-main {
+                font-size: 0.92rem;
+                letter-spacing: 0.18em;
+                white-space: nowrap;
+            }
+            .mobile-header-controls {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 6px;
+                margin-left: auto;
+                flex-wrap: nowrap;
+            }
+            .mobile-header-controls .dash-ctrl-btn {
+                width: 36px;
+                height: 36px;
+                border-radius: 999px;
+            }
+            .mobile-header-controls .dash-ctrl-btn svg,
+            .mobile-header-controls .dash-ctrl-btn i {
+                width: 15px;
+                height: 15px;
+            }
+            .mobile-header-controls .dash-header-divider {
+                height: 22px;
+                margin: 0 2px;
+            }
+            .mobile-header-controls .dash-ctrl-avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 0.72rem;
             }
             .dashboard-content {
                 padding: 20px 16px; /* Optimized mobile padding */
             }
-            .dashboard-header-row { 
-                margin-bottom: 20px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
+            .dashboard-header-row {
+                display: none;
             }
             .dashboard-date-widget {
                 align-self: flex-start;
@@ -796,6 +837,110 @@
         .header-brand .logo-sub { font-size: 0.75rem; color: var(--clr-text-muted); display: block; }
         @media (min-width: 768px) {
             .header-brand { display: flex; align-items: center; gap: 8px; margin-right: 18px; }
+        }
+
+        /* Header Controls Group – Theme, RTL, Profile */
+        .dash-header-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .dash-ctrl-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(197, 168, 128, 0.06);
+            border: 1px solid rgba(197, 168, 128, 0.18);
+            color: var(--clr-gold-accent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            position: relative;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .dash-ctrl-btn svg,
+        .dash-ctrl-btn i {
+            width: 16px;
+            height: 16px;
+            pointer-events: none;
+        }
+
+        .dash-ctrl-btn:hover,
+        .dash-ctrl-btn:focus {
+            background: rgba(197, 168, 128, 0.14);
+            border-color: var(--clr-gold-accent);
+            box-shadow: 0 0 12px rgba(197, 168, 128, 0.15);
+            outline: none;
+        }
+
+        /* Sun/moon icon visibility driven by theme class (mirrors main navbar) */
+        .dash-ctrl-btn .sun-icon { display: none; }
+        .dash-ctrl-btn .moon-icon { display: block; }
+        body.light-mode .dash-ctrl-btn .sun-icon { display: block; }
+        body.light-mode .dash-ctrl-btn .moon-icon { display: none; }
+
+        /* Light-mode ctrl btn adjustment */
+        body.light-mode .dash-ctrl-btn {
+            background: rgba(139, 115, 85, 0.06);
+            border-color: rgba(139, 115, 85, 0.2);
+            color: var(--clr-gold-accent);
+        }
+        body.light-mode .dash-ctrl-btn:hover {
+            background: rgba(139, 115, 85, 0.12);
+        }
+
+        /* Divider between controls and date-widget */
+        .dash-header-divider {
+            width: 1px;
+            height: 28px;
+            background: rgba(197, 168, 128, 0.18);
+            margin: 0 6px;
+            flex-shrink: 0;
+        }
+        body.light-mode .dash-header-divider {
+            background: rgba(139, 115, 85, 0.18);
+        }
+
+        /* Avatar / profile icon in controls */
+        .dash-ctrl-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--clr-emerald-mid);
+            border: 1px solid var(--clr-gold-accent);
+            color: var(--clr-gold-accent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            cursor: default;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(197, 168, 128, 0.12);
+        }
+
+        /* Logout sidebar item – destructive-muted styling */
+        .sidebar-menu-item.logout-item a {
+            color: var(--clr-text-muted) !important;
+        }
+        .sidebar-menu-item.logout-item a i {
+            color: var(--clr-text-muted) !important;
+        }
+        .sidebar-menu-item.logout-item a:hover {
+            color: #e06060 !important;
+            background-color: rgba(220, 80, 80, 0.06) !important;
+        }
+        .sidebar-menu-item.logout-item a:hover i {
+            color: #e06060 !important;
         }
 
         /* SPA Tab Separation Styles */
@@ -1061,12 +1206,12 @@
                 <li class="sidebar-menu-item"><a href="#moodboards"><i data-lucide="palette"></i>Mood Boards</a></li>
                 <li class="sidebar-menu-item"><a href="#milestones"><i data-lucide="clock"></i>Project Timeline</a></li>
                 <li class="sidebar-menu-item"><a href="#budget"><i data-lucide="wallet"></i>Quotation & Budget</a></li>
-                <li class="sidebar-menu-item"><a href="#chat"><i data-lucide="message-square"></i>Atelier Chat</a></li>
+                <li class="sidebar-menu-item"><a href="#chat"><i data-lucide="message-square"></i>Studio Chat</a></li>
                 <li class="sidebar-menu-item"><a href="#docs"><i data-lucide="file-text"></i>Documents</a></li>
-                <li class="sidebar-menu-item" style="margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px;">
-                    <a href="index.html" style="color: var(--clr-text-muted);">
-                        <i data-lucide="arrow-left" style="color: var(--clr-text-muted);"></i>
-                        <span>Exit Portal</span>
+                <li class="sidebar-menu-item logout-item" style="margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px;">
+                    <a href="login.html" aria-label="Logout">
+                        <i data-lucide="log-out"></i>
+                        <span>Logout</span>
                     </a>
                 </li>
             </ul>
@@ -1082,10 +1227,22 @@
                     <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 28px;">
                     <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
                         <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); font-size: 14px; letter-spacing: 2px; line-height: 1;">VERDANT</span>
-                        
                     </div>
                 </a>
-                <div style="width: 44px;"></div> <!-- Mathematical balancing element -->
+                <!-- Mobile header controls -->
+                <div class="dash-header-controls mobile-header-controls">
+                    <button class="dash-ctrl-btn mobile-theme-toggle" id="dashThemeToggleBtnMobile" aria-label="Toggle Theme" title="Toggle Theme">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
+                    </button>
+                    <button class="dash-ctrl-btn mobile-rtl-toggle" id="dashRtlToggleBtnMobile" aria-label="Toggle Language / RTL" title="Language / RTL">
+                        <i data-lucide="globe"></i>
+                    </button>
+                    <div class="dash-header-divider" aria-hidden="true"></div>
+                    <button class="dash-ctrl-btn mobile-profile-btn" aria-label="Open profile menu" title="Profile menu">
+                        <span class="dash-ctrl-avatar">MV</span>
+                    </button>
+                </div>
             </div>
             <div class="sidebar-overlay" aria-hidden="true"></div>
 
@@ -1095,16 +1252,23 @@
                     <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 36px; transition: transform 0.3s ease;">
                     <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
                         <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); font-size: 16px; letter-spacing: 2px; line-height: 1;">VERDANT</span>
-                        
                     </div>
                 </a>
                 <div class="welcome-text">
                     <h2>Welcome to Verdant Portal</h2>
-                    <p>Atelier Case Study Ref: #VER-BELAIR-8460</p>
+                    <p>Project Case Study Ref: #VER-BELAIR-8460</p>
                 </div>
-                <div class="dashboard-date-widget" style="text-align: right;">
-                    <span style="font-size: 11px; color: var(--clr-gold-accent); letter-spacing: 2px; text-transform: uppercase;">Direct Line Online</span>
-                    <p style="color: var(--clr-text-main); font-weight: 500; font-size: 13px; margin-top: 3px;">Principal Vivienne Vance</p>
+                <!-- Header Controls: Theme · RTL · Profile (grouped, top-right) -->
+                <div class="dash-header-controls">
+                    <button class="dash-ctrl-btn" id="dashThemeToggleBtn" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
+                    </button>
+                    <button class="dash-ctrl-btn" id="dashRtlToggleBtn" aria-label="Toggle Layout Direction" title="Toggle RTL">
+                        <i data-lucide="languages"></i>
+                    </button>
+                    <div class="dash-header-divider" aria-hidden="true"></div>
+                    <div class="dash-ctrl-avatar" title="Marcus Vance – Client Portal" aria-label="Logged in as Marcus Vance">MV</div>
                 </div>
             </div>
 
@@ -1159,7 +1323,7 @@
                         
                         <div class="concept-card">
                             <div class="concept-visual">
-                                <img src="assets/images/hero_interior.png" alt="Concept interior render">
+                                <img src="assets/images/portfolio_cta.png" alt="Concept interior render">
                                 <div class="concept-stamp">CONCEPT #3 — Emerald Sanctuary</div>
                             </div>
                             <div class="concept-details">
@@ -1194,11 +1358,11 @@
                         <div class="uploaded-images-row" id="uploadedImages">
                             <!-- Populated with javascript -->
                             <div class="uploaded-thumb">
-                                <img src="assets/images/about_studio.png" alt="Reference image">
+                                <img src="assets/images/about_concept.png" alt="Reference image">
                                 <div class="uploaded-thumb-delete" onclick="showToast('Reference Deleted', 'Item removed from database.')"><i data-lucide="trash"></i></div>
                             </div>
                             <div class="uploaded-thumb">
-                                <img src="assets/images/project_kitchen.png" alt="Reference image">
+                                <img src="assets/images/home_staging.png" alt="Reference image">
                                 <div class="uploaded-thumb-delete" onclick="showToast('Reference Deleted', 'Item removed from database.')"><i data-lucide="trash"></i></div>
                             </div>
                         </div>
@@ -1207,7 +1371,7 @@
                     <!-- BUDGET & FINANCIALS -->
                     <div class="dashboard-panel animate-on-scroll slide-right" id="budget-panel">
                         <div class="panel-header">
-                            <h3><i data-lucide="wallet"></i> Atelier Financial Curation</h3>
+                            <h3><i data-lucide="wallet"></i> Project Financial Ledger</h3>
                             <span style="font-size: 11px; color: var(--clr-gold-accent); letter-spacing: 1px;">LEDGER SYNCED</span>
                         </div>
                         <div class="admin-table-wrapper" style="margin-top: 20px;">
@@ -1223,7 +1387,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><strong>Atelier Sourcing & Design</strong></td>
+                                        <td><strong>Bespoke Sourcing & Design</strong></td>
                                         <td>$45,000</td>
                                         <td>$45,000</td>
                                         <td style="color: var(--clr-text-muted); font-size: 0.8rem;">Fully Settled</td>
@@ -1313,7 +1477,7 @@
                         </div>
                     </div>
 
-                    <!-- ATELIER CHAT WIDGET -->
+                    <!-- STUDIO CHAT WIDGET -->
                     <div class="dashboard-panel animate-on-scroll slide-left" id="chat">
                         <div class="panel-header">
                             <h3><i data-lucide="message-square"></i> Designer Dispatch</h3>
@@ -1422,7 +1586,7 @@
                 if (grid) grid.classList.remove('spa-active');
                 if (stats) stats.style.display = 'grid';
                 if (welcomeText) welcomeText.textContent = "Welcome to Verdant Portal";
-                if (welcomeSub) welcomeSub.textContent = "Atelier Case Study Ref: #VER-BELAIR-8460";
+                if (welcomeSub) welcomeSub.textContent = "Project Case Study Ref: #VER-BELAIR-8460";
                 
                 // For overview: show Active Moodboards & Timeline highlights in a clean grid summary
                 const moodboardsEl = document.querySelector('#moodboards');
@@ -1451,7 +1615,7 @@
                     const budgetPanel = document.querySelector('#budget-panel');
                     if (budgetPanel) budgetPanel.classList.remove('hidden');
                 } else if (hash === '#chat') {
-                    if (welcomeText) welcomeText.textContent = "Principal Atelier Chat";
+                    if (welcomeText) welcomeText.textContent = "Principal Studio Chat";
                     if (welcomeSub) welcomeSub.textContent = "Direct communication line with principal designer Vivienne Vance.";
                     const chatEl = document.querySelector('#chat');
                     if (chatEl) chatEl.classList.remove('hidden');
@@ -1568,6 +1732,54 @@
                 if (window.innerWidth > 992) closeSidebar();
             });
         });
+    </script>
+    <!-- Dashboard Header Controls: Theme & RTL wiring -->
+    <script>
+        (function() {
+            function applyThemePreference(newTheme) {
+                if (newTheme === 'light') {
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('light-mode');
+                } else {
+                    document.body.classList.remove('light-mode');
+                    document.body.classList.add('dark-mode');
+                }
+                localStorage.setItem('theme-preference', newTheme);
+                if (window.lucide) window.lucide.createIcons();
+            }
+
+            function applyRtlPreference(newRtl) {
+                if (newRtl) {
+                    document.documentElement.setAttribute('dir', 'rtl');
+                    document.body.classList.add('rtl-mode');
+                } else {
+                    document.documentElement.setAttribute('dir', 'ltr');
+                    document.body.classList.remove('rtl-mode');
+                }
+                localStorage.setItem('rtl-preference', String(newRtl));
+                if (window.lucide) window.lucide.createIcons();
+            }
+
+            var themeButtons = [document.getElementById('dashThemeToggleBtn'), document.getElementById('dashThemeToggleBtnMobile')].filter(Boolean);
+            themeButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var isLight = document.body.classList.contains('light-mode');
+                    applyThemePreference(isLight ? 'dark' : 'light');
+                });
+            });
+
+            var rtlButtons = [document.getElementById('dashRtlToggleBtn'), document.getElementById('dashRtlToggleBtnMobile')].filter(Boolean);
+            rtlButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+                    applyRtlPreference(!isRtl);
+                });
+            });
+
+            if (localStorage.getItem('rtl-preference') === 'true') {
+                applyRtlPreference(true);
+            }
+        })();
     </script>
     <script src="script.js"></script>
 </body>
