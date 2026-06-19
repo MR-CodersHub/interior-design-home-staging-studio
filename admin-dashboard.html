@@ -121,7 +121,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .welcome-text h2 {
@@ -134,6 +134,70 @@
             color: var(--clr-text-muted);
             font-size: 0.9rem;
             margin-top: 5px;
+        }
+
+        /* Profile Header Block & Spacing Overrides */
+        .header-profile-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(197, 168, 128, 0.14);
+            border-radius: 30px; /* Pill style */
+            padding: 4px 4px 4px 16px;
+            transition: var(--transition-fast);
+        }
+
+        body.light-mode .header-profile-block {
+            background: rgba(139, 115, 85, 0.05);
+            border-color: rgba(139, 115, 85, 0.15);
+        }
+
+        .header-profile-block:hover {
+            border-color: var(--clr-gold-accent);
+            background: rgba(197, 168, 128, 0.05);
+        }
+
+        .header-profile-info {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+        .header-profile-info h4 {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--clr-text-main);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .header-profile-info span {
+            font-size: 0.72rem;
+            color: var(--clr-text-muted);
+            margin-top: 2px;
+        }
+
+        .welcome-text-section {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .header-profile-block {
+                padding: 4px 4px 4px 12px;
+                gap: 8px;
+            }
+            .header-profile-info h4 {
+                font-size: 0.8rem;
+            }
+            .header-profile-info span {
+                font-size: 0.65rem;
+            }
+            .welcome-text-section {
+                margin-bottom: 24px;
+            }
         }
 
         /* Stats Grid */
@@ -620,16 +684,29 @@
         /* Mobile-only sidebar transition (kept out of desktop layout) */
         @media (max-width: 992px) {
             .mobile-topbar {
-                display: grid;
-                grid-template-columns: 44px minmax(0, 1fr) auto;
+                display: flex;
+                justify-content: space-between;
                 align-items: center;
-                gap: 8px;
+                gap: 12px;
                 padding: 10px 0 14px;
                 margin-bottom: 14px;
+                width: 100%;
             }
             .mobile-brand {
                 justify-content: flex-start;
                 min-width: 0;
+                flex-shrink: 0;
+            }
+            .mobile-header-controls .mobile-hamburger {
+                width: 36px !important;
+                height: 36px !important;
+                display: inline-flex !important;
+                margin-left: 4px;
+            }
+            .mobile-header-controls .mobile-hamburger i,
+            .mobile-header-controls .mobile-hamburger svg {
+                width: 16px !important;
+                height: 16px !important;
             }
             .mobile-brand .brand-logo-img {
                 height: 24px;
@@ -1046,11 +1123,10 @@
         <main class="dashboard-content">
             <!-- Mobile topbar (visible on small screens) -->
             <div class="mobile-topbar">
-                <button class="mobile-hamburger" aria-label="Open menu"><i data-lucide="menu"></i></button>
                 <a href="index.html" class="mobile-brand" aria-label="Verdant Home" style="display: flex; flex-direction: row; align-items: center; gap: 10px; text-decoration: none;">
                     <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 28px;">
                     <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
-                        <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); font-size: 14px; letter-spacing: 2px; line-height: 1;">VERDANT</span>
+                        <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 800; color: var(--clr-text-main); font-size: 16px; letter-spacing: 2px; line-height: 1;">VERDANT</span>
                     </div>
                 </a>
                 <!-- Mobile header controls -->
@@ -1059,40 +1135,51 @@
                         <i data-lucide="sun" class="sun-icon"></i>
                         <i data-lucide="moon" class="moon-icon"></i>
                     </button>
-                    <button class="dash-ctrl-btn mobile-rtl-toggle" id="dashRtlToggleBtnMobile" aria-label="Toggle Language / RTL" title="Language / RTL">
-                        <i data-lucide="globe"></i>
+                    <button class="dash-ctrl-btn mobile-rtl-toggle" id="dashRtlToggleBtnMobile" aria-label="Toggle Layout Direction" title="Toggle RTL">
+                        <i data-lucide="arrow-left-right"></i>
                     </button>
                     <div class="dash-header-divider" aria-hidden="true"></div>
                     <button class="dash-ctrl-btn mobile-profile-btn" aria-label="Open profile menu" title="Profile menu">
                         <span class="dash-ctrl-avatar">VV</span>
                     </button>
+                    <button class="mobile-hamburger" aria-label="Open menu" style="margin-left: 4px;"><i data-lucide="menu"></i></button>
                 </div>
             </div>
             <div class="sidebar-overlay" aria-hidden="true"></div>
             
             <!-- HEADER INFO ROW -->
             <div class="dashboard-header-row animate-on-scroll fade-in">
-                <a href="index.html" class="header-brand" aria-label="Verdant Home" style="display: flex; flex-direction: row; align-items: center; gap: 12px; text-decoration: none;">
-                    <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 36px; transition: transform 0.3s ease;">
+                <a href="index.html" class="header-brand" aria-label="Verdant Home" style="display: flex; flex-direction: row; align-items: center; gap: 12px; text-decoration: none; margin-left: 0; padding-left: 0;">
+                    <img src="assets/images/logo.png" alt="Verdant Logo" class="brand-logo-img" style="height: 44px; transition: transform 0.3s ease;">
                     <div class="brand-text" style="display: flex; flex-direction: column; text-align: left;">
-                        <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); font-size: 16px; letter-spacing: 2px; line-height: 1;">VERDANT</span>
+                        <span class="logo-main" style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--clr-text-main); font-size: 25px; letter-spacing: 3px; line-height: 1;">VERDANT</span>
                     </div>
                 </a>
-                <div class="welcome-text">
-                    <h2>Studio Management Portal</h2>
-                    <p>System status: Calibrated & Bullish &bull; Online Satellites (2)</p>
-                </div>
-                <!-- Header Controls: Theme · RTL · Profile (grouped, top-right) -->
+                <!-- Header Controls: Theme · RTL · User Profile (grouped, top-right) -->
                 <div class="dash-header-controls">
                     <button class="dash-ctrl-btn" id="dashThemeToggleBtn" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
                         <i data-lucide="sun" class="sun-icon"></i>
                         <i data-lucide="moon" class="moon-icon"></i>
                     </button>
                     <button class="dash-ctrl-btn" id="dashRtlToggleBtn" aria-label="Toggle Layout Direction" title="Toggle RTL">
-                        <i data-lucide="languages"></i>
+                        <i data-lucide="arrow-left-right"></i>
                     </button>
                     <div class="dash-header-divider" aria-hidden="true"></div>
-                    <div class="dash-ctrl-avatar" title="Vivienne Vance – Admin Portal" aria-label="Logged in as Vivienne Vance">VV</div>
+                    <div class="header-profile-block">
+                        <div class="header-profile-info">
+                            <h4>Vivienne Vance</h4>
+                            <span>Principal Designer</span>
+                        </div>
+                        <div class="dash-ctrl-avatar" title="Vivienne Vance – Admin Portal" aria-label="Logged in as Vivienne Vance">VV</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WELCOME TEXT SECTION -->
+            <div class="welcome-text-section animate-on-scroll fade-in">
+                <div class="welcome-text">
+                    <h2>Studio Management Portal</h2>
+                    <p>System status: Calibrated & Bullish &bull; Online Satellites (2)</p>
                 </div>
             </div>
 
